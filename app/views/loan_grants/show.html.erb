@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Applicant:</b>
+  <%= @loan_grant.applicant_id %>
+</p>
+
+<p>
+  <b>Loan amount:</b>
+  <%= @loan_grant.loan_amount %>
+</p>
+
+<p>
+  <b>Returned amount:</b>
+  <%= @loan_grant.returned_amount %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @loan_grant.comment %>
+</p>
+
+
+<%= link_to 'Edit', edit_loan_grant_path(@loan_grant) %> |
+<%= link_to 'Back', loan_grants_path %>

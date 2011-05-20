@@ -1,0 +1,11 @@
+<%= link_to 'Donors', applicants_path %> &gt;
+<%= link_to @donner.full_name, donner_path %>
+
+&gt; Edit
+<br/><br/>
+<h1>Editing donor</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Delete', @donner, :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'Back', donner_path %>

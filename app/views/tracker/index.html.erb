@@ -1,0 +1,71 @@
+<p id="notice"><%= notice %></p>
+
+<%if !@donner.nil?%>
+<div class="content_box_1">
+<h3>
+  <div style="float: left;">Donner Details</div>
+  </h3>
+  <br/>
+<br/>
+<p>
+  <b>Name:</b>
+  <%= @donner.first_name %> <%= @donner.last_name %>
+</p>
+
+
+<p>
+  <b>Address:</b>
+  <%= @donner.address %>,
+  <%= @donner.street %>,
+  <%= City.find(@donner.city_id).name %>,
+  <%= Country.find(@donner.country_id).name %>.
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @donner.phone %>
+</p>
+
+<p>
+  <b>Mobile:</b>
+  <%= @donner.mobile %>
+</p>
+
+<p>
+
+  <b>About:</b>
+  <%= @donner.about %>
+</p>
+
+<p>
+
+  <b>Access Code:</b>
+  <%= @donner.random_code %>
+</p>
+
+
+</div>
+
+<div class="content_box_1">
+  <h3>
+    <div style="float: left;">Donations:</div>
+    <div style="float: right"><%=link_to "add new", {:controller=>"donations", :action=>"new", :id=>@donner.id} %> </div>
+
+  </h3>
+  <br/>
+  <%= render :partial=>"donations/donations_list"  %>
+
+
+</div>
+
+<div class="content_box_1">
+  <h3>
+    Linked Applicants:
+  </h3>
+  <br/>
+  <%= render :partial=>"donners/donner_applicant"  %>
+
+
+</div>
+
+<%end%>

@@ -1,0 +1,41 @@
+    List &nbsp;|&nbsp;
+    <%= link_to 'New Applicant', new_applicant_path%>
+    <br/><br/>
+<h1 class="red">Listing applicants </h1>
+
+<table class="table">
+  <tr>
+    <th>Serial</th>
+
+    <th>Name</th>
+
+    <th>Father Name</th>
+    <th>Id card number</th>
+    <th>Contact</th>
+    <th></th>
+  </tr>
+
+  <% @applicants.each do |applicant| %>
+    <tr>
+      <td><b><%= applicant.serial %></b></td>
+
+  <td><%= applicant.first_name + " " + applicant.last_name %></td>
+  <td><%= applicant.father_first_name  + " " +  applicant.father_last_name %></td>
+  <td><%= applicant.id_card_number %></td>
+  <td><%= applicant.address  + " " +  applicant.street %> <%= applicant.phone %>
+  <%= applicant.mobile %></td>
+
+
+
+      <td><%= link_to 'show', applicant %>
+        </td>
+    </tr>
+  <% end %>
+</table>
+
+
+
+<span style="float: right">
+<%= will_paginate @applicants %>
+</span>
+<br>

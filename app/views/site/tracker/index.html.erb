@@ -1,0 +1,98 @@
+
+
+<p id="notice"><%= notice %></p>
+
+<%if @donner.nil?%>
+                         <h1>Loan Dispersal</h1>
+                    <h2>Track your loans</h2>
+                    Please enter your access code to get the details of your funds.
+                    <h2>Total loans</h2>
+
+
+<%else%>
+<div class="post">
+
+  <div class="entry">
+    
+    <h1><b> <%= @donner.first_name %> <%= @donner.last_name %></b>
+    </h1>
+
+    <p class="meta">
+      <b>Address:</b>
+      <%= @donner.address %>,
+      <%= @donner.street %>,
+      <%= City.find(@donner.city_id).name %>,
+      <%= Country.find(@donner.country_id).name %>.
+      <br/>
+      <b>Phone:</b>
+      <%= @donner.phone %>
+      <b>Mobile:</b>
+      <%= @donner.mobile %>
+
+      <br/>
+      <b>Access Code:</b>
+      <%= @donner.random_code %>
+    </p>
+
+    <p>
+      <b>About:</b>
+      <%= @donner.about %>
+    </p>
+
+
+  </div>
+
+  <div class="entry">
+    <h2>
+      <div style="float: left;">Donations:</div>
+    </h2>
+    <br/>
+    <%if !@donations.nil? and @donations.count!=0 %>
+
+      <table width="100%">
+
+        <% @donations.each { |d|  %>
+
+          <tr>
+            <td style="width: 100px"><%=d.received_at%></td>
+            <td style="width: 100px">Rs: <%=d.amount%>/=</td>
+            <td><%=d.comment%></td>
+
+          </tr>
+
+        <%}%>
+
+      </table>
+    <%end%>
+
+
+  </div>
+
+  <div class="entry">
+    <h2>
+      Grants for applicants:
+      
+    </h2>
+    
+    <span class="meta">Your donation has been used for the following applicants:</span>
+    <br/>
+    <table width="500px">
+      <% if !@donner_applicants.nil?
+        @donner_applicants.map {|da|
+          applicant=Applicant.find(da.applicant_id)%>
+          <tr>
+            <td> <%=applicant.first_name+" "+applicant.last_name%></td>
+            <td> <%=link_to  "details", "/tracker/applicants/#{da.applicant_id}"%></td>
+
+          </tr>
+        <%}
+      end
+    %>
+    </table>
+
+
+
+
+  </div>
+  </div>
+<%end%>

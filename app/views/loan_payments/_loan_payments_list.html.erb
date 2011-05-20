@@ -1,0 +1,26 @@
+<%if !loan_payments.nil? and loan_payments.count!=0 %>
+<table width="100%">
+
+  <% loan_payments.each { |lp|  %>
+
+  <tr>
+    <td style="width: 150px;"><%=lp.created_at.strftime("%d/%m/%Y")%></td>
+    
+    <td style="width: 100px;" > <%="Paid Rs:"+lp.amount.to_s+"/=" %></td>
+    <td><%=lp.comment%></td>
+    <td><%= link_to 'edit', edit_loan_payment_path(lp) %>
+    </td>
+
+  </tr>
+
+    <%}%>
+
+
+</table>
+
+
+<%end%>
+
+
+
+    

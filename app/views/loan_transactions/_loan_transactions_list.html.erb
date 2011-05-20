@@ -1,0 +1,47 @@
+<%if !@loan_transactions.nil? and @loan_transactions.count!=0 %>
+<%debit=0%>
+<%credit=0%>
+<table width="100%">
+
+  <% @loan_transactions.each { |t|  %>
+
+  <tr>
+    <% if  !t.debit.nil? %>
+<%debit=debit+t.debit%>
+
+    <td style="width: 150px; font-weight: bold"><%=t.created_at.strftime("%d/%m/%Y")%></td>
+    
+    <td style="width: 150px; font-weight: bold">Loan Granted</td>
+    <td style="width: 100px; font-weight: bold"> Rs:<%=t.debit%>/=</td>
+<td style="font-weight: bold"><%=t.comment%></td>
+
+
+
+    <%else%>
+<%credit=credit+t.credit%>
+      <td style="width: 150px;" ><%= t.created_at.strftime("%d/%m/%Y")%></td>
+    
+    <td style="width: 150px">Returned</td>
+    <td style="width: 100px"> Rs:<%=t.credit%>/=</td>
+    <td><%=t.comment%></td>
+
+    <%end%>
+    
+
+<td><%= link_to 'edit', edit_loan_transaction_path(t) %></td>
+  </tr>
+
+    <%}%>
+
+
+</table>
+
+<br/><span style="width:100px; font-weight: bold">Total Loans</span> Rs:<%=debit%>/=
+<br/><span style="width:100px; font-weight: bold">Total Paid </span>Rs:<%=credit%>/=
+<br/><span style="width:100px; font-weight: bold">Total Remaining </span>Rs:<%=debit-credit%>/=
+
+<%end%>
+
+
+
+    

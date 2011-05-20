@@ -1,0 +1,34 @@
+    List &nbsp;|&nbsp;
+    <%= link_to 'New Donor', new_donner_path%>
+    <br/><br/>
+
+<h1>Listing donors</h1>
+
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Address</th>
+    
+    <th>Mobile</th>
+    <th></th>
+  </tr>
+
+<% @donners.each do |donner| %>
+  <tr>
+    <td><%= donner.first_name %> <%= donner.last_name %></td>
+    <td><%= donner.email %></td>
+    <td><%= donner.address %> <%= donner.street %>, <%= donner.city_id %></td>
+    <td><%= donner.mobile %></td>
+    
+    <td>
+
+      <%= link_to 'Show', donner %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Donor', new_donner_path %>

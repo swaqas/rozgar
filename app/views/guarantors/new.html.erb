@@ -1,0 +1,15 @@
+<div>
+
+<%= link_to 'Applicants', applicants_path %> &gt;
+<%= link_to Applicant.find(params[:id]).full_name, {:controller=>"applicants",:action=>"show",:id=>params[:id]}%>
+&gt; Guarantor
+&gt; New
+
+      </div>
+<br/>
+
+<h1>New guarantor</h1>
+
+<%= render :partial=>'form', :locals=>{:applicant_id=>params[:id]} %>
+
+<%= link_to 'Back', "/applicants/"+params[:id] %>

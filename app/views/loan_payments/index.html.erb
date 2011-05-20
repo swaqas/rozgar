@@ -1,0 +1,29 @@
+<h1>Listing loan_payments</h1>
+
+<table>
+  <tr>
+    <th>Applicant</th>
+    <th>Loan grant</th>
+    <th>Amount</th>
+    <th>Comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @loan_payments.each do |loan_payment| %>
+  <tr>
+    <td><%= loan_payment.applicant_id %></td>
+    <td><%= loan_payment.loan_grant_id %></td>
+    <td><%= loan_payment.amount %></td>
+    <td><%= loan_payment.comment %></td>
+    <td><%= link_to 'Show', loan_payment %></td>
+    <td><%= link_to 'Edit', edit_loan_payment_path(loan_payment) %></td>
+    <td><%= link_to 'Destroy', loan_payment, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Loan payment', new_loan_payment_path %>

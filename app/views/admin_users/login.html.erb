@@ -1,0 +1,15 @@
+<div style="margin-left: 200px;">
+ <%=form_for(:admin_user, :url=>{:controller=>:admin_users, :action=>:login}) do |f| %>
+<%=flash[:error]%>
+
+   <p><%= label_tag 'login' %><br/>
+  <%= f.text_field :login %></p>
+
+   <p><%= label_tag 'password' %><br/>
+  <%= f.password_field :password %></p>
+
+  <p><%= submit_tag 'Login' %></p>
+
+<%end%>
+
+</div>

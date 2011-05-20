@@ -1,0 +1,64 @@
+<%= form_for(@donner) do |f| %>
+  <% if @donner.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@donner.errors.count, "error") %> prohibited this donor from being saved:</h2>
+
+      <ul>
+      <% @donner.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+<div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+
+<div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :street %><br />
+    <%= f.text_field :street %>
+  </div>
+<div class="field">
+    <%= f.label :city_id %> &nbsp;
+<%= f.select :city_id,options_for_select(City.all.collect { |c| [c.name, c.id] }) %>
+  </div>
+  <div class="field">
+    <%= f.label :country_id %>&nbsp;
+    <%= f.select :country_id,options_for_select(Country.all.collect { |c| [c.name, c.id] }) %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile %><br />
+    <%= f.text_field :mobile %>
+  </div>
+  <div class="field">
+    <%= f.label :about %><br />
+    <%= f.text_field :about %>
+  </div>
+<%if !@donner.id.nil? %>
+<div class="field">
+    Access Code:&nbsp;
+    <b> <%=  @donner.random_code %></b>
+  </div>
+<%end%>
+<div class="actions">
+    <%= f.submit "Save"%>
+  </div>
+<% end %>

@@ -1,0 +1,33 @@
+<%= form_for(@loan_grant) do |f| %>
+  <% if @loan_grant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@loan_grant.errors.count, "error") %> prohibited this loan_grant from being saved:</h2>
+
+      <ul>
+      <% @loan_grant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    
+    <%= f.hidden_field :applicant_id %>
+<%= f.hidden_field :returned_amount %>
+
+<div class="field">
+    <%= f.label :loan_amount %><br />
+    <%= f.text_field :loan_amount %>
+</div>
+ <div class="field">
+    <%= f.label :instalment_amount %><br />
+    <%= f.text_field :instalment_amount %>
+  </div>
+  <div class="field">
+    <%= f.label :comment %><br />
+    <%= f.text_field :comment %>
+  </div>
+  <div class="actions">
+    <%= f.submit "save" %>
+  </div>
+<% end %>

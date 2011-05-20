@@ -1,0 +1,29 @@
+<div>
+
+<%= link_to 'Applicants', applicants_path %> &gt;
+<%= link_to Applicant.find(params[:id]).full_name, {:controller=>"applicants",:action=>"show",:id=>params[:id]}%>
+&gt; Income
+
+      </div>
+<br/>
+
+
+<table >
+
+
+  <% @incomes.each do |i| %>
+    <tr>
+
+      <td width="200px"><%= i.detail  %></td>
+      <td>
+        <%= link_to 'del', i, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<table>
+  <tr>
+    <td><%= render 'form' %></td>
+    <td>&nbsp;&nbsp; <%= link_to 'back', {:controller=>"applicants",:action=>"show",:id=>params[:id]} %></td>
+  </tr>
+</table>

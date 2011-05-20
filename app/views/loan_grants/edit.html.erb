@@ -1,0 +1,27 @@
+<div>
+<%n=Applicant.find(@loan_grant.applicant_id).first_name%>
+<%n=n+ " " +Applicant.find(@loan_grant.applicant_id).last_name%>
+
+<%= link_to 'Applicants', applicants_path %> &gt;
+<%= link_to n, {:controller=>"applicants",:action=>"show",:id=>params[:id]}%>
+&gt; Loan Grant
+&gt; Edit
+
+      </div>
+<br/>
+
+
+<h1>Editing loan granted to
+<%=n%>
+
+
+</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Delete', @loan_grant, :confirm => 'Are you sure?', :method => :delete %>
+|
+<%= link_to 'Back', "/applicants/#{@loan_grant.applicant_id.to_s}" %>
+
+
+

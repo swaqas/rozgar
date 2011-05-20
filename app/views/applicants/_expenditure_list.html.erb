@@ -1,0 +1,9 @@
+
+<%if !@expenditures.nil? and @expenditures.count!=0 %>
+
+    <% @expenditures.each { |e|  %>
+<span class="list_item"> <%=e.detail%></span>
+<br/>
+    <%}%>
+
+<%end%>

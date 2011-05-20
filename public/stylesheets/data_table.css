@@ -1,0 +1,173 @@
+
+/* tables */
+
+
+.table th {
+  background: #36393d;
+  color: #FFF;
+}
+
+.table td {
+  border-bottom:1px solid #F0F0EE;
+}
+
+.table tr.even {
+  background: #ebebeb;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+  background: #FFFFFF;
+}
+
+.table th {
+  padding: 10px;
+  font-weight: bold;
+  text-align: left;
+  background: #364f86;
+
+}
+
+.table th.first {
+  width: 30px;
+}
+
+.table th.last {
+  width: 200px;
+}
+
+.table .checkbox {
+  margin-left: 10px;
+}
+
+.table td {
+  padding: 10px;
+}
+
+.table td.last {
+  text-align: right;
+}
+
+.table a {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+/* pagination */
+
+.actions-bar {
+  padding: 10px 1px;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.actions-bar .actions {
+  float: left;
+}
+
+
+.actions-bar .pagination {
+  float: right;
+  padding: 1px 0;
+}
+
+
+.pagination a, .pagination span, .pagination em {
+  padding: 2px 5px;
+  margin-right: 5px;
+  display: block;
+  float: left;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.pagination em {
+  font-weight: bold;
+}
+
+.pagination a {
+  text-decoration: none;
+}
+
+
+.pagination a, .pagination span {
+  background: #cfcfcf;
+  -moz-border-radius: 3px;
+  border: 1px solid #c1c1c1;
+}
+
+.pagination em {
+  background: #36393d;
+  color: #FFF;
+  border: 1px solid #36393d;
+}
+
+.pagination a {
+  color: #1a1a1a;
+}
+
+.pagination a:hover {
+  border: 1px solid #666;
+}
+
+
+
+a.button:link, a.button:visited, a.button:hover, a.button:active, button.button {
+  color: #222;
+  display:block;
+  float:left;
+  margin:0 7px 0 0;
+  background-color: #eee;
+  border:1px solid #bfbfbf;
+  font-size: 1em;
+  line-height: 1.3em;
+  font-weight:bold;
+  cursor:pointer;
+  padding:5px 10px 6px 7px;
+  text-decoration: none;
+}
+
+button.button {
+  width:auto;
+  overflow:visible;
+  padding:4px 10px 3px 7px; /* IE6 */
+}
+button.button[type] {
+  padding:5px 10px 5px 7px; /* Firefox */
+  line-height:17px; /* Safari */
+}
+
+*:first-child+html button.button[type] {
+  padding:4px 10px 3px 7px; /* IE7 */
+}
+
+button.button img, a.button img {
+  margin:0 3px -3px 0 !important;
+  padding:0;
+  border:none;
+  width:16px;
+  height:16px;
+}
+
+button.button:hover, a.button:hover {
+  background-color:#dedede;
+}
+
+button.button:active, a.button:active {
+  background-color:#e5e5e5;
+}
+.text_button_padding{
+  color: #222222;
+  display: block;
+  float: left;
+  font-size: 1em;
+  line-height: 2em;
+  margin: 0 7px 0 0;
+  padding: 5px 0 6px 7px;
+  text-decoration: none;
+}
+.link_button{
+  cursor: pointer;
+}

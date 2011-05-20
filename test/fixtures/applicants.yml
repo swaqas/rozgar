@@ -1,0 +1,45 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  serial: MyString
+  entry_date: 2011-04-20
+  first_name: MyString
+  last_name: MyString
+  father_first_name: MyString
+  father_last_name: MyString
+  id_card_number: MyString
+  address: MyString
+  street: MyString
+  city_id: 1
+  country_id: 1
+  phone: MyString
+  mobile: MyString
+  education: MyString
+  experience: MyString
+  occupation: MyString
+  about: MyString
+  family: MyString
+  children: 1
+  prior_dues: MyString
+
+two:
+  serial: MyString
+  entry_date: 2011-04-20
+  first_name: MyString
+  last_name: MyString
+  father_first_name: MyString
+  father_last_name: MyString
+  id_card_number: MyString
+  address: MyString
+  street: MyString
+  city_id: 1
+  country_id: 1
+  phone: MyString
+  mobile: MyString
+  education: MyString
+  experience: MyString
+  occupation: MyString
+  about: MyString
+  family: MyString
+  children: 1
+  prior_dues: MyString

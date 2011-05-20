@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  applicant_id: 1
+  loan_grant_id: 1
+  amount: 9.99
+  comment: MyString
+
+two:
+  applicant_id: 1
+  loan_grant_id: 1
+  amount: 9.99
+  comment: MyString

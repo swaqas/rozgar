@@ -1,0 +1,20 @@
+<%= form_for(@child) do |f| %>
+  <% if @child.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@child.errors.count, "error") %> prohibited this guarantor from being saved:</h2>
+
+      <ul>
+      <% @child.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%=f.hidden_field :applicant_id %>
+    <%= f.text_field :detail %> 
+    <%= f.submit :value=>"add" %>
+  </div>
+  
+<% end %>

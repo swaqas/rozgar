@@ -1,0 +1,103 @@
+<%= form_for@applicant, :html => {:multipart=>true} do |f| %>
+  <% if @applicant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@applicant.errors.count, "error") %> prohibited this applicant from being saved:</h2>
+
+      <ul>
+      <% @applicant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :serial %><br />
+    <%= f.text_field :serial %>
+  </div>
+  <div class="field">
+    <%= f.label :entry_date %><br />
+    <%= f.date_select :entry_date %>
+  </div>
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :father_first_name %><br />
+    <%= f.text_field :father_first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :father_last_name %><br />
+    <%= f.text_field :father_last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :id_card_number %><br />
+    <%= f.text_field :id_card_number %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :street %><br />
+    <%= f.text_field :street %>
+  </div>
+  <div class="field">
+    <%= f.label :city_id %> &nbsp;
+<%= f.select :city_id,options_for_select(City.all.collect { |c| [c.name, c.id] }) %>
+  </div>
+  <div class="field">
+    <%= f.label :country_id %>&nbsp;
+    <%= f.select :country_id,options_for_select(Country.all.collect { |c| [c.name, c.id] }) %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile %><br />
+    <%= f.text_field :mobile %>
+  </div>
+  <div class="field">
+    <%= f.label :education %><br />
+    <%= f.text_field :education %>
+  </div>
+  <div class="field">
+    <%= f.label :experience %><br />
+    <%= f.text_field :experience %>
+  </div>
+  <div class="field">
+    <%= f.label :occupation %><br />
+    <%= f.text_field :occupation %>
+  </div>
+  <div class="field">
+    <%= f.label :about %><br />
+    <%= f.text_field :about %>
+  </div>
+  <div class="field">
+    <%= f.label :family %><br />
+    <%= f.text_field :family %>
+  </div>
+  <div class="field">
+    <%= f.label :number_of_children %><br />
+    <%= f.text_field :number_of_children %>
+  </div>
+  <div class="field">
+    <%= f.label :prior_dues %><br />
+    <%= f.text_field :prior_dues %>
+  </div>
+  <div class="field">
+    <%= f.label :photo %><br />
+    <%= f.file_field :photo %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

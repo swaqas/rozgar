@@ -1,0 +1,39 @@
+<%= form_for(@admin_user) do |f| %>
+  <% if @admin_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_user.errors.count, "error") %> prohibited this admin_user from being saved:</h2>
+
+      <ul>
+      <% @admin_user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+    
+  <% if @admin_user.id.blank?   %>
+    <div class="field">
+      <%= f.label :login %><br />
+      <%= f.text_field :login %>
+    </div>
+  <% else %>
+Login:&nbsp;<b><%=@admin_user.login%></b>
+  <% end %>
+  
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+ <div class="field">
+   confirm password:<br/>
+              <%= f.password_field :password_confirmation %>
+
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

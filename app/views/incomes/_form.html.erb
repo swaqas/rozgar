@@ -1,0 +1,20 @@
+<%= form_for(@income) do |f| %>
+  <% if @income.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@income.errors.count, "error") %> prohibited this guarantor from being saved:</h2>
+
+      <ul>
+      <% @income.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%=f.hidden_field :applicant_id %>
+    <%= f.text_field :detail %> 
+    <%= f.submit :value=>"add" %>
+  </div>
+  
+<% end %>

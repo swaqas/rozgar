@@ -1,0 +1,17 @@
+<div><span><%= link_to 'Admin List', admin_users_path %></span> &nbsp;|&nbsp;
+<span><%= link_to 'New Admin', new_admin_user_path %></span>
+</div>
+
+
+
+<div class="content_box_1">
+
+<h1>Editing Admin User</h1>
+
+<%= render 'form' %>
+<%if @admin_user.login!='admin'%>
+<%= link_to 'Destroy', @admin_user, :confirm => 'Are you sure?', :method => :delete %>
+&nbsp;|&nbsp;
+<% end %>
+<%= link_to 'Back', admin_users_path %>
+</div>

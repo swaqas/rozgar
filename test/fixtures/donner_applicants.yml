@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  donner_id: 1
+  applicant_id: 1
+
+two:
+  donner_id: 1
+  applicant_id: 1

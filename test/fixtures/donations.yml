@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  donner_id: 1
+  amount: 9.99
+  received_at: 2011-05-02
+  comment: MyString
+
+two:
+  donner_id: 1
+  amount: 9.99
+  received_at: 2011-05-02
+  comment: MyString

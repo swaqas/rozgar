@@ -1,0 +1,21 @@
+<%if !@donations.nil? and @donations.count!=0 %>
+
+<table width="100%">
+
+  <% @donations.each { |d|  %>
+
+  <tr>
+    <td style="width: 100px"><%=d.received_at.strftime("%d/%m/%Y")%></td>
+    <td style="width: 100px">Rs: <%=d.amount%>/=</td>
+    <td><%=d.comment%></td>
+<td><%= link_to 'edit', edit_donation_path(d) %></td>
+  </tr>
+
+    <%}%>
+
+</table>
+<%end%>
+
+
+
+    

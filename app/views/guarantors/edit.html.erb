@@ -1,0 +1,15 @@
+<div>
+
+<%= link_to 'Applicants', applicants_path %> &gt;
+<%= link_to Applicant.find(@guarantor.applicant_id).full_name, {:controller=>"applicants",:action=>"show",:id=>@guarantor.applicant_id}%>
+&gt; Guarantor
+&gt; Edit
+
+      </div>
+<br/>
+<h1>Edit Guarantor</h1>
+  <%= render 'form'%>
+<%= link_to 'Delete', @guarantor, :confirm => 'Are you sure?', :method => :delete %>
+&nbsp;&nbsp;|&nbsp;&nbsp;
+
+<%= link_to 'Back', "/applicants/"+@guarantor.applicant_id.to_s %>

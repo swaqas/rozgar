@@ -1,0 +1,173 @@
+
+<div>
+        <%= link_to 'Applicants', applicants_path %> &gt; <%=@applicant.first_name %> <%=@applicant.last_name %>
+
+      </div>
+<br/>
+
+<% if !notice.nil? %>
+<div class="message thank-message">
+<p class="message thank-message"><%= notice %></p>
+		</div>
+<%end%>
+
+
+<div class="content_box_1">
+  <h3>
+  <div style="float: left;">Applicant Details</div>
+  <div style="float: right"><%= link_to 'change', edit_applicant_path(@applicant) %></div>
+  </h3>
+  <br/>
+  <p>
+  
+
+  <div>
+    <b>Serial:</b>
+    <%= @applicant.serial %>
+  </div>
+  <div>
+    <b>Entry date:</b>
+    <%= @applicant.entry_date.strftime("%d/%m/%Y") if !@applicant.entry_date.nil? %>
+  </div>
+  <%if !@applicant.photo_file_name.nil?%>
+  <div style="float:right">
+<%= image_tag @applicant.photo.url(:small) %>
+  </div>
+<%end%>
+</p>
+<br/>
+<p>
+  <b>Name:</b>
+  <%= @applicant.first_name %>  <%= @applicant.last_name %>
+</p>
+
+<p>
+  <b>Father Name:</b>
+  <%= @applicant.father_first_name %> <%= @applicant.father_last_name %>
+</p>
+
+
+<p>
+  <b>Id card number:</b>
+  <%= @applicant.id_card_number %>
+</p>
+
+<p>
+  <b>Address:</b>
+
+  <%= @applicant.address %>,   <%= @applicant.street %>,
+  <%= City.find(@applicant.city_id).name if !City.find(@applicant.city_id).nil? %>,
+  <%=Country.find(@applicant.country_id).name if !Country.find(@applicant.country_id).nil? %>.
+</p>
+
+
+<p>
+  <b>Phone:</b>
+  <%= @applicant.phone %>
+</p>
+
+<p>
+  <b>Mobile:</b>
+  <%= @applicant.mobile %>
+</p>
+
+<p>
+  <b>Education:</b>
+  <%= @applicant.education %>
+</p>
+
+<p>
+  <b>Experience:</b>
+  <%= @applicant.experience %>
+</p>
+
+<p>
+  <b>Occupation:</b>
+  <%= @applicant.occupation %>
+</p>
+
+<p>
+  <b>About:</b>
+  <%= @applicant.about %>
+</p>
+
+
+
+<b>Prior dues:</b>
+<%= " None" if @applicant.prior_dues.nil? or @applicant.prior_dues.length==0 %>
+<%= @applicant.prior_dues %>
+<br/><br/>
+
+<b>Family:</b> 
+<%= @applicant.family %>
+
+
+<% if !@applicant.children.nil? and @applicant.children!=0  %>
+  , Children:(<%= @applicant.number_of_children %>)
+<%else%>
+
+  , Children:(0)
+
+<%end%>
+
+</div>
+<div class="content_box_1">
+  <h3>
+    <div style="float: left;">Children</div>
+    <div style="float: right"><a href="/children/<%=@applicant.id%>">change</a></div>
+  </h3>
+  <br/>
+  <%= render :partial=>"children_list"  %>
+</div>
+
+<div class="content_box_1">
+  <h3>
+    <div style="float: left;">Income Sources</div>
+    <div style="float: right">  <a href="/incomes/<%=@applicant.id%>">change</a></div>
+  </h3>
+  <br/>
+  <%= render :partial=>"income_list"  %>
+</div>
+
+<div class="content_box_1">
+  <h3>
+    <div style="float: left;">Expenditure</div>
+    <div style="float: right">  <a href="/expenditures/<%=@applicant.id%>">change</a></div>
+  </h3>
+  <br/>
+  <%= render :partial=>"expenditure_list"  %>
+</div>
+
+<div class="content_box_1">
+  <h3>
+    <div style="float: left;">Payment Plan</div>
+    <div style="float: right">  <a href="/payment_plans/<%=@applicant.id%>">change</a></div>
+  </h3>
+  <br/>
+  <%= render :partial=>"payment_plan_list"  %>
+</div>
+
+
+
+<div class="content_box_1">
+  <h3>
+   <%  if @guarantors.nil? or @guarantors.count==0 %>
+    <div style="float: left;">Guarantor</div>
+   <%end%>
+   <div style="float: right">   <%=link_to "add new", {:controller=>"guarantors", :action=>"new", :id=>@applicant.id} %> </div>
+  </h3>
+  <br/>
+  <%= render :partial=>"guarantor_list"  %>
+</div>
+
+<div class="content_box_1">
+  <h3>
+    <div style="float: left;">Loans & Payments</div>
+   <div style="float: right">   <%=link_to "add new loan", {:controller=>"loan_grants", :action=>"new", :id=>@applicant.id} %> </div>
+  </h3>
+  <br/>
+  <%= render :partial=>"loan_grants/loan_grants_list"  %>
+  
+</div>
+
+

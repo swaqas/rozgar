@@ -1,0 +1,2 @@
+module LoanMonthlyPaymentHelper
+end

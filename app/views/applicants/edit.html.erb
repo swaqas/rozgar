@@ -1,0 +1,13 @@
+<div>
+        <%= link_to 'Applicants', applicants_path %> &gt; 
+        <%= link_to @applicant.first_name + ' ' + @applicant.last_name, applicant_path %>&gt; Edit
+
+      </div>
+<br/>
+
+<h1>Editing applicant</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Delete', @applicant, :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'Back', applicant_path %>

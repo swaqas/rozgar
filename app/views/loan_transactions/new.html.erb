@@ -1,0 +1,21 @@
+<h1>
+<%=Applicant.find(@loan_transaction.applicant_id).first_name%>
+<%=Applicant.find(@loan_transaction.applicant_id).last_name%>
+
+  </h1>
+
+<div class="content_box_1">
+<h2>Add new returning  details</h2>
+<%= render 'return_form' %>
+</div>
+
+
+<div class="content_box_1">
+  <h2>Add new loan details</h2>
+  <%= render 'loan_form' %>
+</div>
+
+
+
+
+<%= link_to 'Back', "/applicants/"+params[:id] %>

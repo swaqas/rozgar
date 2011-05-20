@@ -1,0 +1,32 @@
+
+<div>
+
+<%= link_to 'Applicants', applicants_path %> &gt;
+
+<%= link_to Applicant.find(params[:id]).full_name, {:controller=>"applicants",:action=>"show",:id=>params[:id]}%>
+&gt; Edit
+
+      </div>
+<br/>
+
+<table >
+
+
+  <% @children.each do |c| %>
+    <tr>
+
+      <td width="200px"><%= c.detail  %></td>
+      <td>
+        <%= link_to 'del', c, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<table>
+  <tr>
+    <td>
+      <span style="color: red"><%=flash[:error]%></span>
+<%= render 'form' %></td>
+    <td>&nbsp;&nbsp; <%= link_to 'back', {:controller=>"applicants",:action=>"show",:id=>params[:id]} %></td>
+  </tr>
+</table>

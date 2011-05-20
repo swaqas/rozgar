@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rozgar</title>
+    <%= stylesheet_link_tag "default.css" %>
+    <%= javascript_include_tag :defaults %>
+
+
+  </head>
+  <body>
+
+    <!-- start header -->
+    <div id="header">
+      <div id="logo">
+        <h1><a href="#">Rozgar</a></h1>
+        <p><a href="#">Islamic micro financing</a></p>
+      </div>
+    </div>
+    <hr />
+    <!-- end header -->
+    <!-- start page -->
+    <div id="wrapper">
+      <div id="page">
+        <!-- start content -->
+        <div id="content">
+          <%=yield%>
+
+
+        </div>
+        <!-- end content -->
+        <!-- start sidebar -->
+        <!-- end sidebar -->
+
+
+        <br style="clear:  both;" />
+      </div>
+    </div>
+    <!-- end page -->
+    <!-- start footer -->
+    <div id="wrapper2">
+      <div id="footer">
+
+      </div>
+
+    </div>
+    <!-- end footer -->
+
+
+  </body>
+</html>

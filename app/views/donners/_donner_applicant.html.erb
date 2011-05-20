@@ -1,0 +1,18 @@
+<table width="500px">
+<% @donner_applicants.map {|da|
+  applicant=Applicant.find(da.applicant_id)%>
+  <tr>
+    <td><%=applicant.first_name+" "+applicant.last_name%></td>
+    <td> <%=link_to :remove, :controller=>:donners,:action=>:destroy_applicant,:donner_id=>da.donner_id,:applicant_id=>da.applicant_id%></td>
+  </tr>
+<%} %>
+</table>
+
+<%= form_for(:donner_applicant,:url=> {:controller=>:donners, :action=>:create_applicant}) do |f| %>
+
+  <div>
+    <%= f.hidden_field :donner_id %>
+    <%= f.select :applicant_id, options_for_select(Applicant.all.collect{|a| [a.first_name + ' ' + a.last_name, a.id]}) %>
+    <%= f.submit :value=>"add" %>
+  </div>
+<% end %>

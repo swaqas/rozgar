@@ -1,0 +1,10 @@
+<%if !@children.nil? and @children.count!=0 %>
+    <% @children.each { |c|  %>
+<span class="list_item"> <%=c.detail%></span>
+<br/>
+    <%}%>
+<%end%>
+
+
+
+    

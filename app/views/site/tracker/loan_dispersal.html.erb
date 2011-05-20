@@ -1,0 +1,14 @@
+<h1>
+Total Loan Dispersal:</h1>
+<%= render "graph" %>
+
+<h1>
+Donners Contribution:</h1>
+<%#= render "donners_graph" %>
+
+<%= image_tag  Gchart.pie_3d(:size => '900x300',
+            :bg => 'EBEAD1',
+            :data =>@donations,
+            :labels => @donners
+            )%>
+

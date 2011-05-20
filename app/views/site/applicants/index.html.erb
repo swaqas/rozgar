@@ -1,0 +1,188 @@
+<div id="help-nav">
+  <%= link_to 'Home', "/tracker" %> &gt; <b>Loan Applicant</b> &gt; <%=@applicant.first_name %> <%=@applicant.last_name %>
+
+</div>
+
+
+<% if !notice.nil? %>
+  <div class="message thank-message">
+    <p class="message thank-message"><%= notice %></p>
+  </div>
+<%end%>
+
+<div class="post">
+  <div class="entry">
+    <h1>  Applicant Details   </h1>
+
+
+    <p>
+      <b>Serial:</b>
+      <%= @applicant.serial %>
+    </p>
+    <p>
+      <b>Entry date:</b>
+      <%= @applicant.created_at.strftime("%d/%m/%Y") %>
+    </p>
+
+    <p>
+      <b>Name:</b>
+      <%= @applicant.first_name %>  <%= @applicant.last_name %>
+    </p>
+
+    <p>
+      <b>Father Name:</b>
+      <%= @applicant.father_first_name %> <%= @applicant.father_last_name %>
+    </p>
+
+    <p>
+      <b>Id card number:</b>
+      <%= @applicant.id_card_number %>
+    </p>
+
+    <p>
+      <b>Address:</b>
+      <%= @applicant.address %>,   <%= @applicant.street %>,
+      <%= City.find(@applicant.city_id).name if !City.find(@applicant.city_id).nil? %>,
+      <%=Country.find(@applicant.country_id).name if !Country.find(@applicant.country_id).nil? %>.
+    </p>
+
+    <p>
+      <b>Phone:</b>
+      <%= @applicant.phone %>
+    </p>
+
+    <p>
+      <b>Mobile:</b>
+      <%= @applicant.mobile %>
+    </p>
+
+    <p>
+      <b>Education:</b>
+      <%= @applicant.education %>
+    </p>
+
+    <p>
+      <b>Experience:</b>
+      <%= @applicant.experience %>
+    </p>
+
+    <p>
+      <b>Occupation:</b>
+      <%= @applicant.occupation %>
+    </p>
+
+    <p>
+      <b>About:</b>
+      <%= @applicant.about %>
+    </p>
+    <p>
+      <b>Prior dues:</b>
+      <%= " None" if @applicant.prior_dues.nil? or @applicant.prior_dues.length==0 %>
+      <%= @applicant.prior_dues %>
+    </p>
+    <p>
+      <b>Family:</b>
+      <%= @applicant.family %>
+
+      <% if !@applicant.children.nil? and @applicant.children!=0  %>
+        , Children:(<%= @applicant.number_of_children %>)
+      <%else%>
+        , Children:(0)
+
+      <%end%>
+    </p>
+  </div>
+  <div class="entry">
+    <h2>Children</h2>
+    <%= render :partial=>"applicants/children_list"  %>
+  </div>
+
+  <div class="entry">
+    <h2>Income Sources</h2>
+    <%= render :partial=>"applicants/income_list"  %>
+  </div>
+
+  <div class="entry">
+    <h2>Expenditure</h2>
+    <%= render :partial=>"applicants/expenditure_list"  %>
+  </div>
+
+  <div class="entry">
+    <h2>Payment Plan</h2>
+    <%= render :partial=>"applicants/payment_plan_list"  %>
+  </div>
+
+
+  <%  if @guarantors.nil? or @guarantors.count==0 %>
+    <div class="entry">
+      <%= render :partial=>"applicants/guarantor_list"  %>
+    </div>
+  <%end%>
+  <div class="entry">
+    <h2>Loans & Payments</h2>
+
+    <%if !@loan_grants.nil? and @loan_grants.count!=0 %>
+      <table width="100%">
+
+        <% @loan_grants.each { |lg|  %>
+
+          <tr>
+            <td>
+
+
+              <b>Dated:</b>
+              <%=lg.created_at.strftime("%d/%m/%Y")%>
+              <br/>
+              <b>Loan Granted:</b>
+              <%="Rs:"+lg.loan_amount.to_s+"/="%>
+              <br/>
+              <b>Comments:</b>
+              <%=lg.comment%>
+              <br/><br/>
+              <b>Payment Details:</b>
+
+              <br/>
+              <span class="meta">
+                <%loan_payments=LoanPayment.find_all_by_loan_grant_id(lg.id)%>
+                <%if !loan_payments.nil? and loan_payments.count!=0 %>
+                  <table width="100%">
+                    <% loan_payments.each { |lp|  %>
+                      <tr>
+                        <td style="width: 100px;"><%=lp.created_at.strftime("%d/%m/%Y")%></td>
+
+                        <td style="width: 100px;" > <%="Paid Rs:"+lp.amount.to_s+"/=" %></td>
+                        <td><%=lp.comment%></td>
+                        
+
+                      </tr>
+
+                    <%}%>
+
+
+                  </table>
+
+
+                <%end%>
+
+              </span>
+
+            </td>
+          </tr>
+
+          <tr>
+            <td >
+
+            </td>
+          </tr>
+        <%}%>
+
+
+      </table>
+
+
+    <%end%>
+
+
+  </div>
+</div>
+

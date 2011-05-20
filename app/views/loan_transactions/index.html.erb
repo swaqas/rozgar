@@ -1,0 +1,29 @@
+<h1>Listing loan_transactions</h1>
+
+<table class="table">
+  <tr>
+    <th>Donner</th>
+    <th>Applicant</th>
+    <th>Debit</th>
+    <th>Credit</th>
+    <th>Comment</th>
+    <th></th>
+  </tr>
+
+<% @loan_transactions.each do |loan_transaction| %>
+  <tr>
+    <td><%= loan_transaction.donner_id %></td>
+    <td><%= loan_transaction.applicant_id %></td>
+    <td><%= loan_transaction.debit %></td>
+    <td><%= loan_transaction.credit %></td>
+    <td><%= loan_transaction.comment %></td>
+    <td><%= link_to 'Show', loan_transaction %>
+    <%= link_to 'Edit', edit_loan_transaction_path(loan_transaction) %>
+    <%= link_to 'Destroy', loan_transaction, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Loan transaction', new_loan_transaction_path %>

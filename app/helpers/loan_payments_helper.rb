@@ -1,0 +1,2 @@
+module LoanPaymentsHelper
+end

@@ -1,0 +1,76 @@
+<%= form_for(@guarantor) do |f| %>
+  <% if @guarantor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@guarantor.errors.count, "error") %> prohibited this guarantor from being saved:</h2>
+
+      <ul>
+      <% @guarantor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <% applicant_id=@guarantor.applicant_id if !@guarantor.applicant_id.nil? %>
+    <%=f.hidden_field :applicant_id, :value=>applicant_id%>
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :father_first_name %><br />
+    <%= f.text_field :father_first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :father_last_name %><br />
+    <%= f.text_field :father_last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :id_card_number %><br />
+    <%= f.text_field :id_card_number %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :street %><br />
+    <%= f.text_field :street %>
+  </div>
+  <div class="field">
+    <%= f.label :city_id %> &nbsp;
+<%= f.select :city_id,options_for_select(City.all.collect { |c| [c.name, c.id] }) %>
+  </div>
+  <div class="field">
+    <%= f.label :country_id %>&nbsp;
+    <%= f.select :country_id,options_for_select(Country.all.collect { |c| [c.name, c.id] }) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile %><br />
+    <%= f.text_field :mobile %>
+  </div>
+  <div class="field">
+    <%= f.label :education %><br />
+    <%= f.text_field :education %>
+  </div>
+  <div class="field">
+    <%= f.label :relationship %><br />
+    <%= f.text_field :relationship %>
+  </div>
+  <div class="field">
+    <%= f.label :opinion %><br />
+    <%= f.text_field :opinion %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

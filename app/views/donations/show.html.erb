@@ -1,0 +1,62 @@
+
+<%if !@donations.nil? and @donations.count!=0 %>
+<div class="content_box_1">
+
+<table width="100%">
+
+  <tr>
+    <th >Dated</th>
+    <th>Amount</th>
+    <th>Comment</th>
+  </tr>
+
+
+  <% @donations.each { |d|  %>
+
+  <tr>
+    <td style="width: 100px"><%=d.received_at%></td>
+    <td style="width: 100px">Rs: <%=d.amount%>/=</td>
+    <td><%=d.comment%></td>
+  </tr>
+
+    <%}%>
+
+</table>
+<%end%>
+</div>
+<div class="content_box_1">
+
+<%= form_for(@donation) do |f| %>
+  <% if @donation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@donation.errors.count, "error") %> prohibited this donation from being saved:</h2>
+
+      <ul>
+      <% @donation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :received_at %><br />
+    <%= f.date_select :received_at %>
+  </div>
+
+  <div class="field">
+    
+    <%= f.hidden_field :donner_id %>
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :comment %><br />
+    <%= f.text_field :comment %>
+    <%= f.submit "Add Donation"%>
+
+  </div>
+
+<% end %>
+</div>

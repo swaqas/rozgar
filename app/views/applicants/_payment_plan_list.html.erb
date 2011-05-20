@@ -1,0 +1,8 @@
+
+
+<%if !@payment_plans.nil? and @payment_plans.count!=0 %>
+    <% @payment_plans.each { |i|  %>
+<span class="list_item"> <%=i.detail%></span>
+<br/>
+    <%}%>
+<%end%>

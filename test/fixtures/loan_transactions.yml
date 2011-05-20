@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  donner_id: 1
+  applicant_id: 1
+  debit: 9.99
+  credit: 9.99
+  comment: MyString
+
+two:
+  donner_id: 1
+  applicant_id: 1
+  debit: 9.99
+  credit: 9.99
+  comment: MyString

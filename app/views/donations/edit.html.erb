@@ -1,0 +1,14 @@
+<%= link_to 'Donners', donners_path %> &gt;
+<%= link_to Donner.find(@donation.donner_id).full_name, "/donners/"+@donation.donner_id.to_s %>
+&gt;Donations
+&gt;Edit
+<br/><br/>
+<h1>Editing donation by
+
+<%=Donner.find(@donation.donner_id).full_name%>
+
+</h1>
+
+<%= render :partial=>'form' %>
+<%= link_to 'Destroy', @donation, :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'Back', "/donners/"+@donation.donner_id.to_s %>

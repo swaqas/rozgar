@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rozgar</title>
+    <%= stylesheet_link_tag "style.css", "data_table.css", "scaffold.css" %>
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag "form_validator.js" %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+
+    <!-- Header -->
+    <div id="header">
+      <div class="shell">
+
+        <div id="head">
+          <h1><a href="#">Rozgar</a></h1>
+          <div class="right">
+            <p>
+						Welcome <strong><%=session["admin_id"].to_s%></strong> |
+              <a href="/logout">Logout</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div id="navigation">
+          <ul>
+            <li><a href="/applicants" ><span>Applicants</span></a></li>
+            <li><a href="/donners"><span>Donors</span></a></li>
+            <%  if !session[:admin_type].nil? %>
+              <li><a href="/admin_users"><span>Admin Users</span></a></li>
+            
+            <%end%>
+            <li><a href="/home.html"><span>Web Site</span></a></li>
+            
+          </ul>
+        </div>
+        <!-- End Navigation -->
+
+      </div>
+    </div>
+    <!-- End Header -->
+
+
+
+    <!-- Content -->
+    <div id="content" class="shell">
+
+      <!-- Help Navigation -->
+      <div id="help-nav">
+        <%#*<a href="#">Dashboard</a> &gt; Current Article%> &nbsp;
+      </div>
+      <!-- End Help Navigation -->
+<%=yield%>
+    </div>
+
+    <!-- End Content -->
+  
+
+  <!-- Footer -->
+  <div id="footer">
+    <p>&copy; Sitename.com. Design by <a href="http://chocotemplates.com">ChocoTemplates.com</a></p>
+  </div>
+  <!-- End Footer -->
+
+
+
+</body>
+</html>

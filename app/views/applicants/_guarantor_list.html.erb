@@ -1,0 +1,69 @@
+
+
+<%gn=1%>
+<table width="100%">
+
+  <tr>
+    <% @guarantors.each { |g|  %>
+      <td>
+      
+        <h3>Guarantor #  <%=gn%>
+          <span style="margin-left:90px; ">
+        <%= link_to 'edit', edit_guarantor_path(g) %>
+            </span>
+        </h3>
+        <%gn=gn+1%>
+        <div>
+          <b>Name:</b>
+          <%= g.first_name %> <%= g.last_name %>
+        </div>
+
+        <div>
+          <b>Father Name:</b>
+          <%= g.father_first_name %> <%= g.father_last_name %>
+        </div>
+
+        <div>
+          <b>Id card number:</b>
+          <%= g.id_card_number %>
+        </div>
+
+        <div>
+          <b>Address:</b>
+          <%= g.address %>
+          <%= g.street %>
+          <%= City.find(g.city_id).name if !City.find(g.city_id).nil? %>,
+          <%=Country.find(g.country_id).name if !Country.find(g.country_id).nil? %>.
+
+        </div>
+
+        <div>
+          <b>Phone:</b>
+          <%= g.phone %>
+        </div>
+
+        <div>
+          <b>Mobile:</b>
+          <%= g.mobile %>
+        </div>
+
+        <div>
+          <b>Education:</b>
+          <%= g.education %>
+        </div>
+
+        <div>
+          <b>Relationship:</b>
+          <%= g.relationship %>
+        </div>
+
+        <div>
+          <b>Opinion:</b>
+          <%= g.opinion %>
+        </div>
+      </td>
+
+    <%}%>
+  </tr>
+
+</table>

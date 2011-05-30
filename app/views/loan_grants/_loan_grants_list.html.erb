@@ -1,46 +1,40 @@
 <%if !@loan_grants.nil? and @loan_grants.count!=0 %>
-  <%lm=0%>
-  <%rm=0%>
+  <% @loan_grants.each { |lg|  %>
+    <div class="content_box_1">
+      <h4 class="red" style="float: left">
+        <%="Loan of Rs:"+lg.loan_amount.to_s+" taken on Date: " + lg.created_at.strftime("%d/%m/%Y") if !lg.loan_amount.nil?%>
+      </h4>
+      <span style="float: right">
+        <%= link_to 'edit this loan', edit_loan_grant_path(lg) %> &nbsp;
+        <%if !lg.loan_remaining.nil?%>
+          |&nbsp;
+          <%=link_to "add new monthly payments", {:controller=>"loan_payments", :action=>"new", :id=>lg.id} %>
+        <%end%>
+      </span>
+      <%if !lg.returned_amount.nil? and lg.returned_amount>0%>
+        <div style="float:none; clear:both">
+          Paid Back <b><%=" Rs: "+lg.returned_amount.to_s+"/=" %></b>
+        </div>
+        <div style="float:none; clear:both">
+          Remaining <b> <%=" Rs: #{lg.loan_remaining}/=" %></b>
+        </div>
+      <%end%>
+      <%if !lg.comment.blank?%>
+        <div style="float:none; clear:both">
+          Comments: &nbsp; <%=lg.comment%>
+        </div>
+      <%end%>
+      <br/>
+      <%lp=LoanPayment.find_all_by_loan_grant_id(lg.id)%>
 
-
-  <table width="100%">
-
-    <% @loan_grants.each { |lg|  %>
-
-      <tr>
-        <td>
-          <span style="width:600px;">
-            <span style="width:150px;font-weight: bold;float:left;"><%=lg.created_at.strftime("%d/%m/%Y")%></span>
-            <span style="width:100px;float: left"><%="Loan Rs:"+lg.loan_amount.to_s+"/=" if !lg.loan_amount.nil?%></span>
-            <span style="width:100px;float: left"><%="Paid Rs:"+lg.returned_amount.to_s+"/=" if !lg.returned_amount.nil?%></span>
-          </span>
-
-        </td>
-      </tr>
-      <tr>
-        <td style="border-bottom: solid 1px white"  >
-          <span>
-          <span style="float: left;"><%=lg.comment%></span>
-          <span style="float: right">
-<%= link_to 'edit', edit_loan_grant_path(lg) %> &nbsp;
-            |&nbsp;
-            <%=link_to "new monthly payments", {:controller=>"loan_payments", :action=>"new", :id=>lg.id} %></span>
-          </span>
-          </td>
-
-      </tr>
-      <tr>
-        <td >
-
-          <%lp=LoanPayment.find_all_by_loan_grant_id(lg.id)%>
-          <%= render :partial=>"loan_payments/loan_payments_list", :locals=>{:loan_payments=>lp} %>
-        </td>
-      </tr>
-    <%}%>
-
-
-  </table>
-
+    <%if !lp.nil? and lp.count>0 %>
+      <div style="float:none; clear:both">
+          <b class="red">Payment instalment details:</b>
+       </div>
+        <%= render :partial=>"loan_payments/loan_payments_list", :locals=>{:loan_payments=>lp} %>
+      <%end%>
+    </div>
+  <%}%>
 
 <%end%>
 

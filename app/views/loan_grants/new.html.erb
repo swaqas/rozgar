@@ -1,6 +1,6 @@
 <div>
-<%n=Applicant.find(@loan_grant.applicant_id).first_name%>
-<%n=n+ " " +Applicant.find(@loan_grant.applicant_id).last_name%>
+  <%n=Applicant.find(params[:id]).full_name%>
+
 
 <%= link_to 'Applicants', applicants_path %> &gt;
 <%= link_to n, {:controller=>"applicants",:action=>"show",:id=>params[:id]}%>
@@ -11,7 +11,7 @@
 <br/>
 
 
-<h1>New loan granted to
+<h1>New loan grant for
 <%=n%>
 
 
@@ -19,4 +19,4 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Back', "/applicants/"+@loan_grant.applicant_id.to_s %>
+<%= link_to 'Back', "/applicants/"+params[:id] %>

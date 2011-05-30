@@ -13,9 +13,9 @@
 
 
 <div class="content_box_1">
-  <h3>
+  <h3 class="red">
   <div style="float: left;">Applicant Details</div>
-  <div style="float: right"><%= link_to 'change', edit_applicant_path(@applicant) %></div>
+  <div style="float: right"><%= link_to 'edit', edit_applicant_path(@applicant) %></div>
   </h3>
   <br/>
   <p>
@@ -112,36 +112,36 @@
 
 </div>
 <div class="content_box_1">
-  <h3>
+  <h3 class="red">
     <div style="float: left;">Children</div>
-    <div style="float: right"><a href="/children/<%=@applicant.id%>">change</a></div>
+    <div style="float: right"><a href="/children/<%=@applicant.id%>">edit</a></div>
   </h3>
   <br/>
   <%= render :partial=>"children_list"  %>
 </div>
 
 <div class="content_box_1">
-  <h3>
+  <h3 class="red">
     <div style="float: left;">Income Sources</div>
-    <div style="float: right">  <a href="/incomes/<%=@applicant.id%>">change</a></div>
+    <div style="float: right">  <a href="/incomes/<%=@applicant.id%>">edit</a></div>
   </h3>
   <br/>
   <%= render :partial=>"income_list"  %>
 </div>
 
 <div class="content_box_1">
-  <h3>
+  <h3 class="red">
     <div style="float: left;">Expenditure</div>
-    <div style="float: right">  <a href="/expenditures/<%=@applicant.id%>">change</a></div>
+    <div style="float: right">  <a href="/expenditures/<%=@applicant.id%>">edit</a></div>
   </h3>
   <br/>
   <%= render :partial=>"expenditure_list"  %>
 </div>
 
 <div class="content_box_1">
-  <h3>
+  <h3 class="red">
     <div style="float: left;">Payment Plan</div>
-    <div style="float: right">  <a href="/payment_plans/<%=@applicant.id%>">change</a></div>
+    <div style="float: right">  <a href="/payment_plans/<%=@applicant.id%>">edit</a></div>
   </h3>
   <br/>
   <%= render :partial=>"payment_plan_list"  %>
@@ -150,24 +150,22 @@
 
 
 <div class="content_box_1">
-  <h3>
+  <h3 class="red">
    <%  if @guarantors.nil? or @guarantors.count==0 %>
     <div style="float: left;">Guarantor</div>
    <%end%>
-   <div style="float: right">   <%=link_to "add new", {:controller=>"guarantors", :action=>"new", :id=>@applicant.id} %> </div>
+   <div style="float: right">   <%=link_to "new", {:controller=>"guarantors", :action=>"new", :id=>@applicant.id} %> </div>
   </h3>
   <br/>
   <%= render :partial=>"guarantor_list"  %>
 </div>
 
 <div class="content_box_1">
-  <h3>
+  <h3 class="red">
     <div style="float: left;">Loans & Payments</div>
-   <div style="float: right">   <%=link_to "add new loan", {:controller=>"loan_grants", :action=>"new", :id=>@applicant.id} %> </div>
+   <div style="float: right">   <%=link_to "new", {:controller=>"loan_grants", :action=>"new", :id=>@applicant.id} %> </div>
   </h3>
   <br/>
-  <%= render :partial=>"loan_grants/loan_grants_list"  %>
-  
 </div>
 
-
+<%= render :partial=>"loan_grants/loan_grants_list"  %>

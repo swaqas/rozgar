@@ -2,14 +2,13 @@
     <%= link_to 'New Donor', new_donner_path%>
     <br/><br/>
 
-<h1>Listing donors</h1>
+<h1  class="red">Listing donors</h1>
 
 <table class="table">
   <tr>
     <th>Name</th>
     <th>Email</th>
     <th>Address</th>
-    
     <th>Mobile</th>
     <th></th>
   </tr>
@@ -32,3 +31,8 @@
 <br />
 
 <%= link_to 'New Donor', new_donner_path %>
+
+<span style="float: right">
+<%= will_paginate @applicants %>
+</span>
+<br/>

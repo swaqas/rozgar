@@ -1,2 +1,53 @@
-<h1>LoanMonthlyPayment#index</h1>
-<p>Find me in app/views/loan_monthly_payment/index.html.erb</p>
+<h1  class="red">Loan Payment for <%=Date.today.strftime("%B %Y")%></h1>
+
+
+
+<table class="table">
+  <tr>
+    <th>Serial</th>
+
+    <th>Name</th>
+
+    <th>Id card number</th>
+    <th>Loan</th>
+    <th>Paid</th>
+    <th>Remaining</th>
+    <th>This month installment</th>
+    <th></th>
+  </tr>
+
+
+  <% @applicants_with_loans.each do |alg| %>
+    <%if alg.loan_grants.count>0 %>
+      <% alg.loan_grants.each do |lg| %>
+
+        <%if !lg.loan_remaining.nil? %>
+
+          <%=  form_tag :controller=>"loan_monthly_payment", :action=>"update", :method=>:post do %>
+            <%= hidden_field_tag :applicant_id,lg.applicant_id %>
+            <%= hidden_field_tag :loan_grant_id, lg.id %>
+
+            <tr>
+              <td><b><%= alg.serial %></b></td>
+              <td><%= alg.first_name + " " + alg.last_name %></td>
+              <td><%= alg.id_card_number %></td>
+              <td><%="Rs: #{lg.loan_amount}" if !lg.loan_amount.nil? %></td>
+              <td><%="Rs: #{lg.returned_amount }" if !lg.returned_amount.nil?%></td>
+              <td><%= "Rs: #{lg.loan_amount - lg.returned_amount}"    if !lg.returned_amount.nil? %></td>
+              <%paid=lg.this_month_loan_payment%>
+
+              <% if paid.nil? %>
+                <td>Rs:<%=text_field_tag :instalment_amount, lg.instalment_amount %>&nbsp;<%=submit_tag :paid%></td>
+              <%else%>
+                <td><%="Rs: #{paid.amount} paid on #{paid.created_at.strftime("%d %B")}"%></td>
+              <%end%>
+
+              <td></td>
+            </tr>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+</table>
+

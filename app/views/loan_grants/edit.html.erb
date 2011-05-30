@@ -3,7 +3,7 @@
 <%n=n+ " " +Applicant.find(@loan_grant.applicant_id).last_name%>
 
 <%= link_to 'Applicants', applicants_path %> &gt;
-<%= link_to n, {:controller=>"applicants",:action=>"show",:id=>params[:id]}%>
+<%= link_to n, {:controller=>"applicants",:action=>"show",:id=>@loan_grant.applicant_id}%>
 &gt; Loan Grant
 &gt; Edit
 

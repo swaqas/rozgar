@@ -47,7 +47,8 @@ Rozgar::Application.routes.draw do
       match 'tracker/applicants/:id' => 'site/applicants#index'
       match 'admin/' => 'admin_users#login'
       match 'logout' => 'admin_users#logout'
-      
+      match '/loan_monthly_payment' => 'loan_monthly_payment#index'
+      match 'loan_monthly_payment/update' => 'loan_monthly_payment#update'
 
           #match 'children/:id' => 'children#index'
   # Keep in mind you can assign values other than :controller and :action

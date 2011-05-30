@@ -8,7 +8,7 @@ gem 'rails', '3.0.3'
 gem 'mysql2'
 #gem 'mysql2', '< 0.3'
 gem "will_paginate", "~> 3.0.pre2"
-gem 'heroku'
+#gem 'heroku'
 # Use unicorn as the web server
 # gem 'unicorn'
 gem 'googlecharts'

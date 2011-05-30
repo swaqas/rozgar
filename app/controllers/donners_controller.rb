@@ -3,7 +3,17 @@ before_filter :authorize_admin, :except => [:login]
   # GET /donners
   # GET /donners.xml
   def index
-    @donners = Donner.all
+    #@donners = Donner.all
+
+     if params[:page]
+      @current_page=params[:page]
+      @donners = Donner.list(params[:page])
+    else
+      @donners = Donner.list(1)
+      @current_page=1
+    end
+
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @donners }
@@ -94,7 +104,7 @@ def create_applicant
     respond_to do |format|
       if @donner_applicant.save
 
-      DonorMailer.applicant_linking(@donner_applicant.donner_id).deliver
+      #DonorMailer.applicant_linking(@donner_applicant.donner_id).deliver
 
       donner=Donner.find(@donner_applicant.donner_id)
         format.html { redirect_to(donner, :notice => 'Applicant successfully Added.') }

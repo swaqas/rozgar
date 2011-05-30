@@ -1,10 +1,10 @@
 class Donation < ActiveRecord::Base
   belongs_to :donner
-  validates_numericality_of :amount
-  validates_presence_of :amount, :received_at
+  validates_numericality_of :amount, :greater_than=>0
+  validates_presence_of :amount, :received_at, :donner_id
 
     def self.total_fund
-      fund=Donation.sum(:amount)
+      Donation.sum(:amount)
     end
 
 end

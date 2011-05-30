@@ -91,4 +91,7 @@ before_filter :authorize_admin, :except => [:login]
       format.xml  { head :ok }
     end
   end
+
+
+
 end

@@ -50,7 +50,7 @@ before_filter :authorize_admin, :except => [:login]
         format.html { redirect_to(applicant, :notice => 'Loan grant was successfully created.') }
         format.xml  { render :xml => @loan_grant, :status => :created, :location => @loan_grant }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => "edit"}
         format.xml  { render :xml => @loan_grant.errors, :status => :unprocessable_entity }
       end
     end

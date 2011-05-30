@@ -29,7 +29,8 @@ def create
         format.html { redirect_to(:action => "index",:id=>@income.applicant_id) }
         format.xml  { render :xml => @income, :status => :created, :location => {:action => "index",:id=>@income.applicant_id}}
       else
-        format.html { render :action => "new" }
+        flash[:error]="Invalid details.."
+        format.html { redirect_to(:action => "index",:id=>@income.applicant_id)}
         format.xml  { render :xml => @income.errors, :status => :unprocessable_entity }
       end
     end

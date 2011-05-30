@@ -1,5 +1,5 @@
 class Expenditure < ActiveRecord::Base
 belongs_to :applicant
-validates_presence_of :detail
+validates_presence_of :detail, :applicant_id
 
 end

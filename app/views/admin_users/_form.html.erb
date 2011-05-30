@@ -12,14 +12,17 @@
   <% end %>
 
   
-    
+    <br/>
   <% if @admin_user.id.blank?   %>
     <div class="field">
       <%= f.label :login %><br />
       <%= f.text_field :login %>
     </div>
   <% else %>
-Login:&nbsp;<b><%=@admin_user.login%></b>
+    <span style="font-size:16px">
+    Login:&nbsp;<b><%=@admin_user.login%></b>
+</span>
+<br/><br/>
   <% end %>
   
   <div class="field">
@@ -34,6 +37,7 @@ Login:&nbsp;<b><%=@admin_user.login%></b>
 
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit " Save "%>
   </div>
+<br/>
 <% end %>

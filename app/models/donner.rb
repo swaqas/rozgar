@@ -10,12 +10,16 @@ class Donner < ActiveRecord::Base
   validates_length_of :email, :mobile, :within => 8..100
 
 
-def self.get_random_code
+  def self.get_random_code
     random_alphanumeric
-end
+  end
 
   def full_name
     first_name+" "+ last_name
+  end
+
+  def self.list(p)
+    paginate :per_page=>20, :page=>p
   end
 
   private

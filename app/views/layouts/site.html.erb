@@ -45,7 +45,7 @@
           <ul>
             <li>
             <%=form_tag :controller=>"site/tracker", :action=>"index" do%>
-              <div><span class="meta"><small>Search Applicant by Access Code:</small></span>&nbsp;<span><%=text_field_tag :code %></span>&nbsp;<span><%=submit_tag " find " %></span></div>
+              <div><span class="meta"><small>Donner's Access Code:</small></span>&nbsp;<span><%=text_field_tag :code %></span>&nbsp;<span><%=submit_tag " search " %></span></div>
             <%end%>
               <span style="color: Red"><%=flash[:error]%></span> 
 

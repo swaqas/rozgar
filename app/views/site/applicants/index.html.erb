@@ -10,7 +10,11 @@
   </div>
 <%end%>
 
+
 <div class="post">
+
+<%######################### Main Detail #####################################%>
+
   <div class="entry">
     <h1>  Applicant Details   </h1>
 
@@ -84,52 +88,67 @@
       <b>Family:</b>
       <%= @applicant.family %>
 
-      <% if !@applicant.children.nil? and @applicant.children!=0  %>
-        , Children:(<%= @applicant.number_of_children %>)
-      <%else%>
-        , Children:(0)
-
+      <% if !@applicant.children.nil? and @applicant.children.count!=0  %>
+        , Children:(<%= @applicant.children.count %>)
       <%end%>
     </p>
   </div>
-  <div class="entry">
-    <h2>Children</h2>
-    <%= render :partial=>"applicants/children_list"  %>
-  </div>
 
-  <div class="entry">
-    <h2>Income Sources</h2>
-    <%= render :partial=>"applicants/income_list"  %>
-  </div>
+  <%######################### Children #####################################%>
 
-  <div class="entry">
-    <h2>Expenditure</h2>
-    <%= render :partial=>"applicants/expenditure_list"  %>
-  </div>
+  <% if !@applicant.children.nil? and @applicant.children.count!=0  %>
+    <div class="entry">
+      <h2>Children</h2>
+      <%= render :partial=>"applicants/children_list"  %>
+    </div>
+  <%end%>
 
-  <div class="entry">
-    <h2>Payment Plan</h2>
-    <%= render :partial=>"applicants/payment_plan_list"  %>
-  </div>
+<%######################### Income Sources #####################################%>
 
+<% if !@applicant.incomes.nil? and @applicant.incomes.count!=0  %>
+    <div class="entry">
+      <h2>Income Sources</h2>
+      <%= render :partial=>"applicants/income_list"  %>
+    </div>
+  <%end%>
+
+  <%######################### Expenditure #####################################%>
+
+<% if !@applicant.expenditures.nil? and @applicant.expenditures.count!=0  %>
+
+    <div class="entry">
+      <h2>Expenditure</h2>
+      <%= render :partial=>"applicants/expenditure_list"  %>
+    </div>
+  <%end%>
+
+  <%######################### Payment Plans #####################################%>
+
+  <% if !@applicant.payment_plans.nil? and @applicant.payment_plans.count!=0  %>
+    <div class="entry">
+      <h2>Payment Plan</h2>
+      <%= render :partial=>"applicants/payment_plan_list"  %>
+    </div>
+  <%end%>
+
+<%######################### Guarantors #####################################%>
 
   <%  if @guarantors.nil? or @guarantors.count==0 %>
     <div class="entry">
       <%= render :partial=>"applicants/guarantor_list"  %>
     </div>
   <%end%>
-  <div class="entry">
-    <h2>Loans & Payments</h2>
 
-    <%if !@loan_grants.nil? and @loan_grants.count!=0 %>
+<%######################### Loan Grants #####################################%>
+
+  <%if !@loan_grants.nil? and @loan_grants.count!=0 %>
+
+    <div class="entry">
+      <h2>Loans & Payments</h2>
       <table width="100%">
-
         <% @loan_grants.each { |lg|  %>
-
           <tr>
             <td>
-
-
               <b>Dated:</b>
               <%=lg.created_at.strftime("%d/%m/%Y")%>
               <br/>
@@ -140,7 +159,7 @@
               <%=lg.comment%>
               <br/><br/>
               <b>Payment Details:</b>
-
+<%#########################  Loan Payments #####################################%>
               <br/>
               <span class="meta">
                 <%loan_payments=LoanPayment.find_all_by_loan_grant_id(lg.id)%>
@@ -149,40 +168,26 @@
                     <% loan_payments.each { |lp|  %>
                       <tr>
                         <td style="width: 100px;"><%=lp.created_at.strftime("%d/%m/%Y")%></td>
-
                         <td style="width: 100px;" > <%="Paid Rs:"+lp.amount.to_s+"/=" %></td>
                         <td><%=lp.comment%></td>
-                        
-
                       </tr>
-
                     <%}%>
-
-
                   </table>
 
-
                 <%end%>
-
               </span>
-
             </td>
           </tr>
-
           <tr>
             <td >
-
             </td>
           </tr>
         <%}%>
 
-
       </table>
 
+    </div>
+  <%end%>
 
-    <%end%>
-
-
-  </div>
 </div>
 

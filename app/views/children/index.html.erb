@@ -4,10 +4,13 @@
 <%= link_to 'Applicants', applicants_path %> &gt;
 
 <%= link_to Applicant.find(params[:id]).full_name, {:controller=>"applicants",:action=>"show",:id=>params[:id]}%>
-&gt; Edit
+&gt; Children
 
       </div>
 <br/>
+
+<h1 class="red">Children </h1>
+<h6> (Add or delete children for the applicant)</h6>
 
 <table >
 
@@ -17,7 +20,7 @@
 
       <td width="200px"><%= c.detail  %></td>
       <td>
-        <%= link_to 'del', c, :confirm => 'Are you sure?', :method => :delete %></td>
+        <%= link_to 'delete', c, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>

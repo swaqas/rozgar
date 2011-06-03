@@ -1,7 +1,7 @@
 
 <h1 class="red">Contribution</h1>
 
-<%= form_for(@donation_request) do |f| %>
+<%= form_for @donation_request, :url=> {:controller=>"dynamics",:action=>"contribute_save"} do |f| %>
   <% if @donation_request.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@donation_request.errors.count, "error") %> prohibited this donation_request from being saved:</h2>

@@ -41,7 +41,8 @@ before_filter :authorize_admin, :except => [:login]
     @loan_grants=LoanGrant.find_all_by_applicant_id(params[:id])
     @incomes=Income.find_all_by_applicant_id(params[:id])
     @payment_plans=PaymentPlan.find_all_by_applicant_id(params[:id])
-
+    @donation_grants=DonationGrant.find_all_by_applicant_id(params[:id])
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @applicant }

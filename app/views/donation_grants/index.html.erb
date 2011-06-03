@@ -1,0 +1,29 @@
+<h1>Listing donation_grants</h1>
+
+<table>
+  <tr>
+    <th>Applicant</th>
+    <th>Amount</th>
+    <th>Comments</th>
+    <th>Grant on</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @donation_grants.each do |donation_grant| %>
+  <tr>
+    <td><%= donation_grant.applicant_id %></td>
+    <td><%= donation_grant.amount %></td>
+    <td><%= donation_grant.comments %></td>
+    <td><%= donation_grant.grant_on %></td>
+    <td><%= link_to 'Show', donation_grant %></td>
+    <td><%= link_to 'Edit', edit_donation_grant_path(donation_grant) %></td>
+    <td><%= link_to 'Destroy', donation_grant, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Donation grant', new_donation_grant_path %>

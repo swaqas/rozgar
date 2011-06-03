@@ -1,0 +1,38 @@
+    List &nbsp;|&nbsp;
+    <%= link_to 'New Donation Request', new_donation_request_path%>
+    
+    <br/><br/>
+
+
+<h1  class="red">Donation Requests</h1>
+
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>Mobile</th>
+    <th>Amount</th>
+    <th></th>
+    
+  </tr>
+
+<% @donation_requests.each do |donation_request| %>
+  <tr>
+    <td><%= donation_request.first_name %> <%= donation_request.last_name %></td>
+    <td><%= donation_request.email %></td>
+    <td><%= donation_request.address %> <%= donation_request.street %> <%= City.find(donation_request.city_id).name %></td>
+    <td><%= donation_request.mobile %></td>
+    <td>Rs: <%= donation_request.donation_amount %></td>
+    <td>
+    
+      <%= link_to 'Show', donation_request %>
+
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+

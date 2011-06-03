@@ -1,0 +1,15 @@
+
+
+
+<table width="100%">
+    <% @donation_grants.each { |dg|  %>
+
+  <tr>
+    <td style="width:100px"><%= dg.grant_on.strftime("%d/%m/%Y") %> </td>
+    <td style="width:80px">Rs:<%= dg.amount %> </td>
+    <td style="width:300px"><%= dg.comment %> </td>
+    <td><%= link_to 'edit', edit_donation_grant_path(dg) %></td>
+  </tr>
+
+  <%}%>
+</table>

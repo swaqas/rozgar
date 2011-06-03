@@ -1,0 +1,13 @@
+<%= link_to 'Donation Requests', donation_requests_path %> &gt;
+<%= link_to @donation_request.full_name, donation_request_path %>
+
+&gt; Edit
+<br/><br/>
+
+<h1 class="red">Editing Donation Request</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @donation_request %> |
+<%= link_to 'Back', donation_requests_path %> |
+<%= link_to 'Delete', @donation_request, :confirm => 'Are you sure?', :method => :delete %> 

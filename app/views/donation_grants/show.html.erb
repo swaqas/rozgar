@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Applicant:</b>
+  <%= @donation_grant.applicant_id %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%= @donation_grant.amount %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @donation_grant.comments %>
+</p>
+
+<p>
+  <b>Grant on:</b>
+  <%= @donation_grant.grant_on %>
+</p>
+
+
+<%= link_to 'Edit', edit_donation_grant_path(@donation_grant) %> |
+<%= link_to 'Back', donation_grants_path %>

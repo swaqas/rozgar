@@ -1,0 +1,15 @@
+<div>
+
+<%= link_to 'Applicants', applicants_path %> &gt;
+<%= link_to Applicant.find(@donation_grant.applicant_id).full_name, {:controller=>"applicants",:action=>"show",:id=>@donation_grant.applicant_id}%>
+&gt; Donation Grant
+&gt; Edit
+
+      </div>
+<h1 class="red">Editing donation_grant</h1>
+
+<%= render 'form' %>
+<%= link_to 'Delete', @donation_grant, :confirm => 'Are you sure?', :method => :delete %>
+&nbsp;&nbsp;|&nbsp;&nbsp;
+
+<%= link_to 'Back', "/applicants/"+@donation_grant.applicant_id.to_s %>

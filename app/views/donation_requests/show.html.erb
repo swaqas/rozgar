@@ -1,0 +1,59 @@
+<%= link_to 'Donation Requests', donation_request_path %> &gt; <%=@donation_request.first_name %> <%=@donation_request.last_name %>
+<p id="notice"><%= notice %></p>
+<div class="content_box_1">
+<h3 class="red">
+  <div style="float: left;">Donation Request</div>
+  <div style="float: right"><%= link_to 'change', edit_donation_request_path(@donation_request) %></div>
+  </h3>
+  <br/>
+<br/>
+
+<p>
+  <b>Name:</b>
+  <%= @donation_request.first_name %>
+
+  <%= @donation_request.last_name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @donation_request.email %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @donation_request.address %>
+  <%= @donation_request.street %>
+  <%= City.find(@donation_request.city_id).name %>,
+  <%= Country.find(@donation_request.country_id).name %>.
+
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @donation_request.phone %>
+</p>
+
+<p>
+  <b>Mobile:</b>
+  <%= @donation_request.mobile %>
+</p>
+
+<p>
+  <b>About:</b>
+  <%= @donation_request.about %>
+</p>
+
+<p>
+  <b>Donation amount:</b>
+  <%= @donation_request.donation_amount %>
+</p>
+
+
+<%= link_to 'Edit', edit_donation_request_path(@donation_request) %> &nbsp; |&nbsp;
+<%= link_to 'Destroy', @donation_request, :confirm => 'Are you sure?', :method => :delete %>&nbsp; |&nbsp;
+<%= link_to 'Back', donation_requests_path %>
+
+
+
+</div>

@@ -1,0 +1,14 @@
+<div class="post">
+
+    <h2 class="title">Your donation is invalueable</h2>
+
+    <div class="entry">
+        <br><br>
+        <strong>Dear <%=@donner.full_name%>,</strong>
+
+        <p>It is to inform you that we have donated amount <%=@donation_grant.amount%> to the the applicant <%=@applicant.full_name%>. <%=@donation_grant.comment%>
+If you wish to donate it on your expense, please let us know. 
+        <a href="http://localhost:3000/tracker/<%=@donner.random_code%>">you can have a look at the complete detail over here..</a>
+        </p>
+    </div>
+</div>

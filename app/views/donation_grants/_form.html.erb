@@ -1,0 +1,31 @@
+<%= form_for(@donation_grant) do |f| %>
+  <% if @donation_grant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@donation_grant.errors.count, "error") %> prohibited this donation_grant from being saved:</h2>
+
+      <ul>
+      <% @donation_grant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <% applicant_id=@donation_grant.applicant_id if !@donation_grant.applicant_id.nil? %>
+    <%=f.hidden_field :applicant_id, :value=>applicant_id%>
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :comment %><br />
+    <%= f.text_field :comment %>
+  </div>
+  <div class="field">
+    <%= f.label :grant_on %><br />
+    <%= f.date_select :grant_on %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Save"%>
+  </div>
+<% end %>

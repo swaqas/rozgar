@@ -33,12 +33,12 @@
       <b>Access Code:</b>
       <%= @donner.random_code %>
     </p>
-
+<%if !@donner.about.blank?%>
     <p>
       <b>About:</b>
       <%= @donner.about %>
     </p>
-
+<%end%>
 
   </div>
 

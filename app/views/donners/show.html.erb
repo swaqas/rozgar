@@ -1,9 +1,9 @@
-        <%= link_to 'Donors', applicants_path %> &gt; <%=@donner.first_name %> <%=@donner.last_name %>
+        <%= link_to 'Donors', donners_path %> &gt; <%=@donner.first_name %> <%=@donner.last_name %>
 
 
 <p id="notice"><%= notice %></p>
 <div class="content_box_1">
-<h3>
+  <h3 class="red">
   <div style="float: left;">Donor Details</div>
   <div style="float: right"><%= link_to 'change', edit_donner_path(@donner) %></div>
   </h3>
@@ -51,7 +51,7 @@
 </div>
 
 <div class="content_box_1">
-  <h3>
+  <h3 class="red">
     <div style="float: left;">Donations:</div>
     <div style="float: right"><%=link_to "add new", {:controller=>"donations", :action=>"new", :id=>@donner.id} %> </div>
                                 
@@ -63,7 +63,7 @@
 </div>
 
 <div class="content_box_1">
-  <h3>
+  <h3 class="red">
     Linked Applicants:
   </h3>
   <br/>

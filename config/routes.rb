@@ -1,5 +1,9 @@
 Rozgar::Application.routes.draw do
 
+  resources :donation_requests
+
+  resources :donation_grants
+
   resources :admin_users
 
   resources :loan_payments
@@ -42,6 +46,11 @@ Rozgar::Application.routes.draw do
       match 'tracker/:code' => 'site/tracker#index'
       match 'tracker/' => 'site/tracker#index'
       match 'loan_dispersal/' => 'site/tracker#loan_dispersal'
+
+      match 'contribute/' => "site/dynamics#contribute"
+      match 'contribute_save/' => "site/dynamics#contribute_save"
+      
+
       match 'tracker/applicants/:id' => 'site/applicants#index'
       match 'admin/' => 'admin_users#login'
       match 'logout' => 'admin_users#logout'

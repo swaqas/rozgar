@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110530115009) do
+ActiveRecord::Schema.define(:version => 20110602124648) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "login"
@@ -65,6 +65,31 @@ ActiveRecord::Schema.define(:version => 20110530115009) do
 
   create_table "countries", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "donation_grants", :force => true do |t|
+    t.integer  "applicant_id"
+    t.decimal  "amount",       :precision => 10, :scale => 0
+    t.string   "comment"
+    t.date     "grant_on"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "donation_requests", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "address"
+    t.string   "street"
+    t.integer  "city_id"
+    t.integer  "country_id"
+    t.string   "phone"
+    t.string   "mobile"
+    t.string   "about"
+    t.decimal  "donation_amount", :precision => 10, :scale => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

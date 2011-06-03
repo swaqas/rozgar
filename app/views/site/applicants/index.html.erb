@@ -133,9 +133,31 @@
 
 <%######################### Guarantors #####################################%>
 
-  <%  if @guarantors.nil? or @guarantors.count==0 %>
+  <%  if !@guarantors.nil? and @guarantors.count!=0 %>
     <div class="entry">
       <%= render :partial=>"applicants/guarantor_list"  %>
+    </div>
+  <%end%>
+
+  <%######################### Loan Grants #####################################%>
+
+  <%  if !@donation_grants.nil? and @donation_grants.count!=0 %>
+    <div class="entry">
+
+      <h2>Donation granted</h2>
+
+      <table width="100%">
+    <% @donation_grants.each { |dg|  %>
+
+  <tr>
+    <td style="width:100px"><%= dg.grant_on.strftime("%d/%m/%Y") %> </td>
+    <td style="width:80px">Rs:<%= dg.amount %> </td>
+    <td style="width:300px"><%= dg.comment %> </td>
+  </tr>
+
+  <%}%>
+</table>
+
     </div>
   <%end%>
 

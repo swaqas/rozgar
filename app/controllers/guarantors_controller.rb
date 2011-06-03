@@ -2,24 +2,24 @@ class GuarantorsController < ApplicationController
   # GET /guarantors
   # GET /guarantors.xml
 before_filter :authorize_admin, :except => [:login]
-  def index
-    @guarantors = Guarantor.all
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @guarantors }
-    end
-  end
-
-  # GET /guarantors/1
-  # GET /guarantors/1.xml
-  def show
-    @guarantor = Guarantor.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @guarantor }
-    end
-  end
+#  def index
+#    @guarantors = Guarantor.all
+#    respond_to do |format|
+#      format.html # index.html.erb
+#      format.xml  { render :xml => @guarantors }
+#    end
+#  end
+#
+#  # GET /guarantors/1
+#  # GET /guarantors/1.xml
+#  def show
+#    @guarantor = Guarantor.find(params[:id])
+#
+#    respond_to do |format|
+#      format.html # show.html.erb
+#      format.xml  { render :xml => @guarantor }
+#    end
+#  end
 
   # GET /guarantors/new
   # GET /guarantors/new.xml

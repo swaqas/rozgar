@@ -162,6 +162,16 @@
 
 <div class="content_box_1">
   <h3 class="red">
+    <div style="float: left;">Donations</div>
+   
+   <div style="float: right">   <%=link_to "new", {:controller=>"donation_grants", :action=>"new", :applicant_id=>@applicant.id} %> </div>
+  </h3>
+  <br/>
+  <%= render :partial=>"donation_grant_list"  %>
+</div>
+
+<div class="content_box_1">
+  <h3 class="red">
     <div style="float: left;">Loans & Payments</div>
    <div style="float: right">   <%=link_to "new", {:controller=>"loan_grants", :action=>"new", :id=>@applicant.id} %> </div>
   </h3>

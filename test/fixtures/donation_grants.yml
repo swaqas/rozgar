@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  applicant_id: 1
+  amount: 9.99
+  comments: MyString
+  grant_on: 2011-06-02
+
+two:
+  applicant_id: 1
+  amount: 9.99
+  comments: MyString
+  grant_on: 2011-06-02

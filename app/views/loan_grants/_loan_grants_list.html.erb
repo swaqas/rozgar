@@ -1,15 +1,23 @@
 <%if !@loan_grants.nil? and @loan_grants.count!=0 %>
   <% @loan_grants.each { |lg|  %>
     <div class="content_box_1">
+
+
       <h4 class="red" style="float: left">
-        <%="Loan of Rs:"+lg.loan_amount.to_s+" taken on Date: " + lg.created_at.strftime("%d/%m/%Y") if !lg.loan_amount.nil?%>
+    <%if lg.defaulter%>
+        (DEFAULTER) 
+        <br/><br/>
+<%end%>
+    <%="Loan of Rs:"+lg.loan_amount.to_s+" taken on Date: " + lg.created_at.strftime("%d/%m/%Y") if !lg.loan_amount.nil?%>
+      
       </h4>
       <span style="float: right">
         <%= link_to 'edit this loan', edit_loan_grant_path(lg) %> &nbsp;
-        <%if !lg.loan_remaining.nil?%>
+        <%if !lg.loan_remaining.nil? and !lg.defaulter%>
           |&nbsp;
           <%=link_to "add new monthly payments", {:controller=>"loan_payments", :action=>"new", :id=>lg.id} %>
         <%end%>
+          
       </span>
       <%if !lg.returned_amount.nil? and lg.returned_amount>0%>
         <div style="float:none; clear:both">

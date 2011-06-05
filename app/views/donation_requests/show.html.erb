@@ -52,8 +52,8 @@
 
 <%= link_to 'Edit', edit_donation_request_path(@donation_request) %> &nbsp; |&nbsp;
 <%= link_to 'Destroy', @donation_request, :confirm => 'Are you sure?', :method => :delete %>&nbsp; |&nbsp;
-<%= link_to 'Back', donation_requests_path %>
-
+<%= link_to 'Back', donation_requests_path %> <br/><br/>
+<%= button_to ' transfer to Donner ', "/donation_request_tranfer/"+@donation_request.id.to_s %>
 
 
 </div>

@@ -22,6 +22,27 @@ class Donner < ActiveRecord::Base
     paginate :per_page=>20, :page=>p
   end
 
+ def self.create_donner donation_request
+   d=Donner.new
+   d.first_name=donation_request.first_name
+   d.last_name=donation_request.last_name
+   d.email=donation_request.email
+   d.address=donation_request.address
+   d.street=donation_request.street
+   d.city_id =donation_request.city_id
+   d.country_id=donation_request.country_id
+   d.phone=donation_request.phone
+   d.mobile=donation_request.mobile
+   d.about=donation_request.about
+   d.save
+   dd=Donation.new
+   dd.amount=donation_request.donation_amount
+   dd.donner_id=d.id
+   dd.save
+   d
+ end
+
+
   private
 
   def valuate_code

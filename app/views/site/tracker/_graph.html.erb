@@ -20,6 +20,7 @@
         ['Total Donations', <%=Donation.total_fund%>],
         ['Loan Dispersal', <%=LoanGrant.total_grant%>],
         ['Loan Paid Back', <%=LoanPayment.total_loan_return%>],
+        ['Loan Defaulters', <%=LoanGrant.total_defaulter%>],
         ['Available Amount', <%=Donation.total_fund-LoanGrant.total_grant%>],
         
       ]);

@@ -8,15 +8,15 @@ class Site::DynamicsController < ApplicationController
     @donation_request = DonationRequest.new(params[:donation_request])
 
       if @donation_request.save
-          redirect_to :action=>"content", :message=>"Thanks for your intrests, your information has been recorded, we will contact you very soon."
+          redirect_to :action=>"content"
       else
         render :action => "contribute"
       end
     
   end
 
-  def content 
-          
+  def content
+      @message="Thanks for your intrests, your information has been recorded, we will contact you very soon."
   end
 
 

@@ -80,4 +80,17 @@ class DonationRequestsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def transfer_to_donner
+    donation_request = DonationRequest.find(params[:id])
+    donner=Donner.create_donner(donation_request)
+    
+    if !donner.nil?
+      donation_request.destroy
+      redirect_to donner
+    else
+      redirect_to donation_request
+    end
+    
+  end
 end

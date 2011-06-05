@@ -14,6 +14,10 @@ validate :validate_amounts
       LoanGrant.sum(:loan_amount)
     end
 
+    def self.total_defaulter
+      LoanGrant.where("defaulter=true").sum(:loan_amount)-LoanGrant.where("defaulter=true").sum(:returned_amount)
+    end
+
     def self.list
       Applicant.joins(:loan_grants)
     end

@@ -1,64 +1,78 @@
 
 <h1 class="red">Contribution</h1>
-
+<div id="stylized" class="site_form">
 <%= form_for @donation_request, :url=> {:controller=>"dynamics",:action=>"contribute_save"} do |f| %>
-  <% if @donation_request.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@donation_request.errors.count, "error") %> prohibited this donation_request from being saved:</h2>
 
-      <ul>
-      <% @donation_request.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <table>
+    <tr>
+      <td>
+        <div class="field">
+          <%= f.label :first_name %><br />
+          <%= f.text_field :first_name %>
+        </div>
+        <div class="field">
+          <%= f.label :last_name %><br />
+          <%= f.text_field :last_name %>
+        </div>
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.text_field :email %>
+        </div>
+        <div class="field">
+          <%= f.label :address %><br />
+          <%= f.text_field :address %>
+        </div>
+        <div class="field">
+          <%= f.label :street %><br />
+          <%= f.text_field :street %>
+        </div>
+        <div class="field">
+          <%= f.label :city_id %> &nbsp;<br/>
+          <%= f.select :city_id,options_for_select(City.all.collect { |c| [c.name, c.id] }),{},{:style=>"width:200px"} %>
+        </div>
+        
+        <div class="field">
+          <%= f.label :country_id %>&nbsp;<br/>
+          <%= f.select :country_id,options_for_select(Country.all.collect { |c| [c.name, c.id] }),{},{:style=>"width:200px"} %>
+        </div>
+        <div class="field">
+          <%= f.label :phone %><br />
+          <%= f.text_field :phone %>
+        </div>
+        <div class="field">
+          <%= f.label :mobile %><br />
+          <%= f.text_field :mobile %>
+        </div>
+        <div class="field">
+          <%= f.label :about %><br />
+          <%= f.text_field :about %>
+        </div>
+        <div class="field">
+          <%= f.label :donation_amount %><br />
+          <%= f.text_field :donation_amount %>
+        </div>
+        <br/>
+        <div class="actions">
+          <%= f.submit "Submit"%>
+        </div>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :street %><br />
-    <%= f.text_field :street %>
-  </div>
- <div class="field">
-    <%= f.label :city_id %> &nbsp;
-<%= f.select :city_id,options_for_select(City.all.collect { |c| [c.name, c.id] }) %>
-  </div>
-  <div class="field">
-    <%= f.label :country_id %>&nbsp;
-    <%= f.select :country_id,options_for_select(Country.all.collect { |c| [c.name, c.id] }) %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :mobile %><br />
-    <%= f.text_field :mobile %>
-  </div>
-  <div class="field">
-    <%= f.label :about %><br />
-    <%= f.text_field :about %>
-  </div>
-  <div class="field">
-    <%= f.label :donation_amount %><br />
-    <%= f.text_field :donation_amount %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+      </td>
+      <td style="vertical-align: top;color:olive; padding-left: 20px; ">
+<% if @donation_request.errors.any? %>
+          <div id="error_explanation">
+            <h4>Please consider the following:</h4>
+
+            <ul>
+              <% @donation_request.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+
 <% end %>
+</div>

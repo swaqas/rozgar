@@ -166,16 +166,35 @@
   <%if !@loan_grants.nil? and @loan_grants.count!=0 %>
 
     <div class="entry">
+      
       <h2>Loans & Payments</h2>
       <table width="100%">
         <% @loan_grants.each { |lg|  %>
-          <tr>
+        <tr>
             <td>
+      
               <b>Dated:</b>
               <%=lg.created_at.strftime("%d/%m/%Y")%>
               <br/>
               <b>Loan Granted:</b>
               <%="Rs:"+lg.loan_amount.to_s+"/="%>
+      
+
+
+              <br/>
+                            <b>Returned Amount:</b>
+              <%="Rs:"+lg.returned_amount.to_s+"/="%>
+              <br/>
+      
+      <%if lg.defaulter %>
+              <span style="color: brown">
+                      <b>Defaulted Amount:</b>
+              <%="Rs:"+(lg.loan_amount-lg.returned_amount).to_s+"/="%>
+    </span>
+    <%else%>
+                      <b>Remaining Amount:</b>
+              <%="Rs:"+lg.loan_remaining.to_s+"/="%>
+    <%end%>
               <br/>
               <b>Comments:</b>
               <%=lg.comment%>

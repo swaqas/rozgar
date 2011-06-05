@@ -39,7 +39,9 @@ Rozgar::Application.routes.draw do
 #match '/donors/create_applicant' => 'donners#create_applicant'
 
 
-  match 'app_gear/read_csv' => 'app_gear#read_csv'
+      match 'app_gear/read_csv' => 'app_gear#read_csv'
+      
+      match '/donation_request_tranfer/:id' => "donation_requests#transfer_to_donner"
 
       match 'donners/destroy_applicant/:applicant_id/:donner_id' => 'donners#destroy_applicant'
       match 'donners/create_applicant' => 'donners#create_applicant'
@@ -49,6 +51,7 @@ Rozgar::Application.routes.draw do
 
       match 'contribute/' => "site/dynamics#contribute"
       match 'contribute_save/' => "site/dynamics#contribute_save"
+      match 'content/' => "site/dynamics#content"
       
 
       match 'tracker/applicants/:id' => 'site/applicants#index'

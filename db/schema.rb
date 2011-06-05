@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110602124648) do
+ActiveRecord::Schema.define(:version => 20110604055822) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "login"
@@ -169,6 +169,7 @@ ActiveRecord::Schema.define(:version => 20110602124648) do
     t.integer  "grant_status_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "defaulter"
   end
 
   create_table "loan_payments", :force => true do |t|

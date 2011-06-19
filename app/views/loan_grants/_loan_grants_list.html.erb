@@ -5,7 +5,7 @@
 
       <h4 class="red" style="float: left">
     <%if lg.defaulter%>
-        (DEFAULTER) 
+        <span class="warning">        Applicant is a Defaulter for this loan. </span>
         <br/><br/>
 <%end%>
     <%="Loan of Rs:"+lg.loan_amount.to_s+" taken on Date: " + lg.created_at.strftime("%d/%m/%Y") if !lg.loan_amount.nil?%>

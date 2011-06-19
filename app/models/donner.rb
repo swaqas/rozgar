@@ -9,6 +9,9 @@ class Donner < ActiveRecord::Base
   validates_uniqueness_of :email, :mobile
   validates_length_of :email, :mobile, :within => 8..100
 
+  validates :email,
+  :format     => { :with=>/^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$/, :message => "Invalid Email Addess." }
+
 
   def self.get_random_code
     random_alphanumeric

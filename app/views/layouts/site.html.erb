@@ -1,76 +1,94 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Rozgar</title>
-    <%= stylesheet_link_tag "default.css" %>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Rozgar - Islamic Micro Financing</title>
+    
+    <%= stylesheet_link_tag "styles.css" %>
     <%= javascript_include_tag :defaults %>
     <%= csrf_meta_tag %>
   </head>
+
   <body>
-
-    <!-- start header -->
-    <div id="header">
-      <div id="logo">
-        <h1><a href="#">Rozgar</a></h1>
-        <p><a href="#">Islamic micro financing</a></p>
-      </div>
-      <div id="menu">
-        <ul>
-          <li><a href="/home.html">Home</a></li>
-          <li><a href="/about.html">About Rozgar</a></li>
-          <li><a href="/how.html">How Rozgar Works</a></li>
-          <li><a href="/loan_dispersal">Loan Dispersal</a></li>
-          <li><a href="/contribute.html">Contribute </a></li>
-          <li><a href="/contact.html">Contact </a></li>
-        </ul>
-      </div>
-    </div>
-    <hr />
-    <!-- end header -->
-    <!-- start page -->
     <div id="wrapper">
-      <div id="page">
-        <!-- start content -->
-        <div id="content">
-          <%=yield%>
-
-
-        </div>
-        <!-- end content -->
-        <!-- start sidebar -->
-        <div id="sidebar">
-
-
-
-          <ul>
-            <li>
-            <%=form_tag :controller=>"site/tracker", :action=>"index" do%>
-              <div><span class="meta"><small>Donner's Access Code:</small></span>&nbsp;<span><%=text_field_tag :code %></span>&nbsp;<span><%=submit_tag " search " %></span></div>
-            <%end%>
-              <span style="color: Red"><%=flash[:error]%></span> 
-
-            </li>
+      <div id="contentwrapper">
+        <div id="header">
+          <div id="logo"><%=image_tag "logo.png",  :width=>"127", :height=>"103", :alt=>"Rozgar" %>
           
+          </div>
+          <div id="search">
 
+          <%=form_tag :controller=>"site/tracker", :action=>"index" do%>
+              <label>
+                Search donors
+                <%=text_field_tag :code, "Enter Access Code", :class=>"searchinput" %>
+              </label>
+              <label>
+                <%=submit_tag "", :class=>"search" %>
+              </label>
 
-          </ul>
+            <%end%>
+          </div>
+
+          <div id="navigation">
+            <ul>
+              <li>
+                <a href="/index.html" class="tab-home"></a>
+              </li>
+              <li>
+                <a href="/about.html" class="tab-about"></a>
+              </li>
+              <li>
+                <a href="/howrozgarworks.html" class="tab-how"></a>
+              </li>
+              <li>
+                <a href="/loan_dispersal" class="tab-loan"></a>
+              </li>
+              <li>
+                <a href="/contribute" class="tab-contribute"></a>
+              </li>
+              <li>
+                <a href="/contact.html" class="tab-contact"></a>
+              </li>
+            </ul>
+          </div>
+
         </div>
-        <!-- end sidebar -->
+
+        <div class="innerimg">
+          <%=image_tag "header-loandispersal.jpg",  :width=>"1032", :height=>"100" %>
+          
+        <div class="content">
+          <div id="rightcolumn">
+            <p><a href="/contribute">
+                    <%=image_tag "btn-contribute.gif",  :width=>"159", :height=>"84" %>
+
+                </a></p>
+            <p><a href="contact.html">
+                  <%=image_tag "btn-contactus.gif",  :width=>"159", :height=>"84" %>
+
+              </a></p>
+          </div>
+          <div class="fullwidth">
 
 
-        <br style="clear:  both;" />
+
+            <%=yield%>
+
+
+
+          </div>
+        </div>
+
+
       </div>
-    </div>
-    <!-- end page -->
-    <!-- start footer -->
-    <div id="wrapper2">
+</div>
+      
       <div id="footer">
-
+        <div class="floatleft">All Rights Reserved - Rozgar 2011</div>
+        <div class="floatright"><a href="http://www.viaduct.net.pk" target="_blank">Website by Viaduct</a></div>
       </div>
-
     </div>
-    <!-- end footer -->
-
 
   </body>
 </html>

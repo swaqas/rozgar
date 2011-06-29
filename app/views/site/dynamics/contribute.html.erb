@@ -1,78 +1,100 @@
-
-<h1 class="red">Contribution</h1>
-<div id="stylized" class="site_form">
+<h2><strong>Contribution</strong></h2>
 <%= form_for @donation_request, :url=> {:controller=>"dynamics",:action=>"contribute_save"} do |f| %>
 
-  <table>
-    <tr>
-      <td>
-        <div class="field">
-          <%= f.label :first_name %><br />
-          <%= f.text_field :first_name %>
-        </div>
-        <div class="field">
-          <%= f.label :last_name %><br />
-          <%= f.text_field :last_name %>
-        </div>
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.text_field :email %>
-        </div>
-        <div class="field">
-          <%= f.label :address %><br />
-          <%= f.text_field :address %>
-        </div>
-        <div class="field">
-          <%= f.label :street %><br />
-          <%= f.text_field :street %>
-        </div>
-        <div class="field">
-          <%= f.label :city_id %> &nbsp;<br/>
-          <%= f.select :city_id,options_for_select(City.all.collect { |c| [c.name, c.id] }),{},{:style=>"width:200px"} %>
-        </div>
-        
-        <div class="field">
-          <%= f.label :country_id %>&nbsp;<br/>
-          <%= f.select :country_id,options_for_select(Country.all.collect { |c| [c.name, c.id] }),{},{:style=>"width:200px"} %>
-        </div>
-        <div class="field">
-          <%= f.label :phone %><br />
-          <%= f.text_field :phone %>
-        </div>
-        <div class="field">
-          <%= f.label :mobile %><br />
-          <%= f.text_field :mobile %>
-        </div>
-        <div class="field">
-          <%= f.label :about %><br />
-          <%= f.text_field :about %>
-        </div>
-        <div class="field">
-          <%= f.label :donation_amount %><br />
-          <%= f.text_field :donation_amount %>
-        </div>
-        <br/>
-        <div class="actions">
-          <%= f.submit "Submit"%>
-        </div>
+  <% if @donation_request.errors.any? %>
+    <div id="error_explanation">
+      <h4>Please consider the following:</h4>
 
-
-      </td>
-      <td style="vertical-align: top;color:olive; padding-left: 20px; ">
-<% if @donation_request.errors.any? %>
-          <div id="error_explanation">
-            <h4>Please consider the following:</h4>
-
-            <ul>
-              <% @donation_request.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
+      <ul>
+        <% @donation_request.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
         <% end %>
-      </td>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <table width="70%" border="0" cellspacing="0" cellpadding="5">
+    <tr>
+      <td><span class="field">
+          <label for="donation_request_first_name2">First name</label>
+          <br />
+          <%= f.text_field :first_name, :size=>"30"  %>
+
+
+        </span></td>
+      <td><span class="field">
+          <label for="donation_request_last_name3">Last name</label>
+          <br />
+          <%= f.text_field :last_name, :size=>"30" %>
+
+        </span></td>
+    </tr>
+    <tr>
+      <td><span class="field">
+          <label for="donation_request_phone">Phone</label>
+          <br />
+          <%= f.text_field :phone, :size=>"30" %>
+        </span></td>
+      <td><span class="field">
+          <label for="donation_request_mobile">Mobile</label>
+          <br />
+          <%= f.text_field :mobile, :size=>"30" %>
+        </span></td>
+    </tr>
+    <tr>
+      <td><span class="field">
+          <label for="donation_request_email2">Email</label>
+          <br />
+          <%= f.text_field :email, :size=>"30" %>
+        </span></td>
+      <td><span class="field">
+          <label for="donation_request_about">About</label>
+          <br />
+          <%= f.text_field :about, :size=>"30" %>
+        </span></td>
+    </tr>
+    <tr>
+      <td><span class="field">
+          <label for="donation_request_address2">Address</label>
+          <br />
+          <%= f.text_field :address, :size=>"30", :class=>"textbox" %>
+        </span></td>
+      <td><span class="field">
+          <label for="donation_request_donation_amount">Donation amount</label>
+          <br />
+          <%= f.text_field :donation_amount, :size=>"30" %>
+        </span></td>
+    </tr>
+    <tr>
+      <td><span class="field">
+          <label for="donation_request_street2">Street</label>
+          <br />
+          <%= f.text_field :street, :size=>"30" %>
+        </span></td>
+      <td><span class="field">
+          <label for="donation_request_city_id3">City</label>
+          &nbsp;<br/>
+          <%= f.select :city_id,options_for_select(City.all.collect { |c| [c.name, c.id] }),{},{:style=>"width:200px"} %>
+
+        </span></td>
+    </tr>
+    <tr>
+      <td><span class="field">
+          <label for="donation_request_country_id3">Country</label>
+          &nbsp;<br/>
+          <%= f.select :country_id,options_for_select(Country.all.collect { |c| [c.name, c.id] }),{},{:style=>"width:200px"} %>
+        </span></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><span class="actions">
+          <%= f.submit "Submit"%>
+        </span></td>
     </tr>
   </table>
 
 <% end %>
-</div>
+
+

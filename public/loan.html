@@ -1,85 +1,135 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Rozgar</title>
-    
-    <link href="stylesheets/default.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Rozgar - Islamic Micro Financing</title>
+<link href="stylesheets/styles.css" rel="stylesheet" type="text/css" />
+</head>
 
-    <!-- start header -->
-<div id="header">
-	<div id="logo">
-		<h1><a href="#">Rozgar</a></h1>
-		<p><a href="#">Islamic micro financing</a></p>
-	</div>
-	<div id="menu">
-		<ul>
-	<li><a href="/home.html">Home</a></li>
-          <li><a href="/about.html">About Rozgar</a></li>
-          <li><a href="/how.html">How Rozgar Works</a></li>
-          <li><a href="/loan_dispersal">Loan Dispersal</a></li>
-          <li><a href="/contribute.html">Contribute </a></li>
-          <li><a href="/contact.html">Contact </a></li>
-                </ul>
-	</div>
-</div>
-<hr />
-<!-- end header -->
-<!-- start page -->
+<body>
 <div id="wrapper">
-	<div id="page">
-		<!-- start content -->
-		<div id="content">
+	<div id="contentwrapper">
+		<div id="header">
+        	<div id="logo"><img src="images/logo.png" width="127" height="103" alt="Rozgar" /></div>
+      <div id="search"><form name="track" action="/tracker" method="get">
+          <label>
+              Search donors
+        <input name="code" type="text" class="searchinput" id="accesscode" value="Enter Access Code" />
+          </label>
+              <label>
+                <input type="submit" value=" " class="search" />
+              </label>
+            </form>
+        </div>
 
+      <div id="search"><form action="#" method="post">
+          <label>
+              Search donors
+        <input name="donor" type="text" class="searchinput" id="accesscode" value="Enter Access Code" />
+          </label>
+              <label>
+                <input type="submit" name="button" id="button" value=" " class="search" />
+              </label>
+            </form>
+        </div>
 
-
-                    <h1>Loan Dispersal</h1>
-                    <h2><a href="/tracker"> Track your loans</a></h2>
-                    <h2>Total loans</h2>
-
-
-
-
-
-                    
-
-		</div>
-		<!-- end content -->
-		<!-- start sidebar -->
-		<div id="sidebar">
-			<ul>
-				<li>
-
-					<ul>
-						<li><a href="/home.html">Home</a> </li>
-						<li><a href="/about.html">About Rozgar</a> </li>
-						<li><a href="/how.html">How Rozgar Works</a>  </li>
-						<li><a href="/loan_dispersal">Loan Dispersal</a></li>
-						<li><a href="/contribute.html">Contribute</a>  </li>
-						<li><a href="/contact.html">Contact</a>  </li>
-					</ul>
-				</li>
-
-
-			</ul>
-		</div>
-		<!-- end sidebar -->
-
-
-                <br style="clear: both;" />
-	</div>
+      <div id="search"><form action="#" method="post"> 
+          <label>
+              Search donors
+        <input name="donor" type="text" class="searchinput" id="accesscode" value="Enter Access Code" />
+          </label>
+              <label>
+                <input type="submit" name="button" id="button" value=" " class="search" />
+              </label>
+            </form>
+        </div>
+            
+        <div id="navigation">
+            	<ul>
+                	<li>
+                    	<a href="index.html" class="tab-home"></a>
+                    </li>
+                    <li>
+                    	<a href="about.html" class="tab-about"></a>
+                    </li>
+                    <li>
+                    	<a href="howrozgarworks.html" class="tab-how"></a>
+                    </li>
+                    <li>
+                    	<a href="loan.html" class="tab-loan currenttab"></a>
+                    </li>
+                    <li>
+                    	<a href="contribute.html" class="tab-contribute"></a>
+                    </li>
+                    <li>
+                    	<a href="contact.html" class="tab-contact"></a>
+                    </li>
+                </ul>
+        </div>
+            
+      </div>
+      
+      	<div class="innerimg"><img src="images/header-loandispersal.jpg" width="1032" height="100" /></div>
+        <div class="content">
+          <div id="rightcolumn">
+          <p><a href="/contribute"><img src="images/btn-contribute.gif" width="159" height="84" /></a></p>
+              <p><a href="contact.html"><img src="images/btn-contactus.gif" alt="" width="159" height="84" /></a></p>
+          </div>
+            <div class="fullwidth">
+              <h2><strong>Total Loan Dispersal</strong></h2>
+              <p><script type="text/javascript" src="https://www.google.com/jsapi"></script> 
+    <script type="text/javascript"> 
+ 
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1', {'packages':['corechart']});
+ 
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+ 
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+ 
+      // Create our data table.
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Type');
+      data.addColumn('number', 'Amount In Rupees');
+      data.addRows([
+        ['Total Donations', 1305000],
+        ['Loan Dispersal', 114000],
+        ['Loan Paid Back', 18600],
+        ['Loan Defaulters', 0],
+        ['Available Amount', 1191000],
+        
+      ]);
+ 
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+      chart.draw(data, {width: 650, height: 300, backgroundColor: '#ffffff'});
+      
+    }
+    </script> 
+    <div id="chart_div"
+         ></div> </p>
+<hr />
+              <h2><strong>Donor's Contribution</strong></h2>
+              <img alt="Chart?chf=bg,s,ebead1&amp;chd=s:yd9&amp;chl=abdul+salaam+khalid+%28rs%3a355000%29|kashif+saeed+%28rs%3a50000%29|asim+uiuiui+%28rs%3a900000%29&amp;cht=p3&amp;chs=800x300&amp;chxr=0,355000,900000" src="http://chart.apis.google.com/chart?chf=bg,s,EBEAD1&amp;chd=s:YD9&amp;chl=Abdul+Salaam+Khalid+%28Rs%3A355000%29|Kashif+Saeed+%28Rs%3A50000%29|asim+uiuiui+%28Rs%3A900000%29&amp;cht=p3&amp;chs=800x300&amp;chxr=0,355000,900000" /> 
+ 
+ 
+ 
+ 
+        </div> 
+      </div>
+            
+            
+  </div>
+        
+        <div id="footer">
+        	<div class="floatleft">All Rights Reserved - Rozgar 2011</div>
+            <div class="floatright"><a href="http://www.viaduct.net.pk" target="_blank">Website by Viaduct</a></div>
+        </div>
+    </div>
 </div>
-<!-- end page -->
-<!-- start footer -->
-<div id="wrapper2">
-	<div id="footer">
-
-	</div>
-
-</div>
-<!-- end footer -->
-
-
 </body>
 </html>
